@@ -264,8 +264,8 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
                     $i = 0;
                     $videoList = '';
                     foreach($product['videos'] as $key => $value) {
-                    $videoList  .= PHP_EOL . '<video>http://www.youtube.com/embed/'. $key . '</video>' . PHP_EOL;
-                    $i++;
+                        $videoList  .= PHP_EOL . '<video>http://www.youtube.com/embed/'. $key . '</video>' . PHP_EOL;
+                        $i++;
                 }
 
                 $entry['videos'] = $videoList;
