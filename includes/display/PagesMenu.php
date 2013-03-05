@@ -138,7 +138,7 @@ CLASS ISC_PAGESMENU_PANEL extends PANEL
 				}
 				$ncats_in_col--;
 
-				$output_2 .= $this->subcat2 (&$categories, $subCat);
+				$output_2 .= $this->subcat2 ($categories, $subCat);
 			} // end inner foreach
 			
 			if ($ncol > 0) {
@@ -200,7 +200,7 @@ CLASS ISC_PAGESMENU_PANEL extends PANEL
 		$output_3 = ""; //mz 
 		$subparentid = $subCat['categoryid'];  
 		if (isset ($categories[$subparentid])) {
-			$output_3 = $this->subcat3 (&$categories, $subparentid, $catName, $catLink);
+			$output_3 = $this->subcat3 ($categories, $subparentid, $catName, $catLink);
 		}		
 
 		$GLOBALS['PageMenuList'] = $output_3;

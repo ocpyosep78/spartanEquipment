@@ -92,8 +92,6 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
     public function &getTruckTraderResult($start)
     {
         static $loopCount = 0;
-        //echo "this is loop  " . ++$loopCount . " starting with " . $start . "<br>";
-
         //get all the category information
         $this->getCategories();
         $catNames = &$this->_catNames;
@@ -126,7 +124,7 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
             $query = "SELECT *
                 FROM [|PREFIX|]product_images
                 WHERE imageprodid IN (" . implode(",", array_keys($productArray)) .")
-				ORDER BY imagesort asc";
+                ORDER BY imagesort asc";
             $result = $GLOBALS['ISC_CLASS_DB']->Query($query);
             $images = array ();
             while ($row = $GLOBALS['ISC_CLASS_DB']->Fetch($result)) {
@@ -149,20 +147,20 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
                             'imagefilezoomsize'  => $row['imagefilezoomsize']
                         );
             }
-			
-			$query = "SELECT * 
-				FROM `[|PREFIX|]product_videos` 
-				WHERE video_product_id IN (" . implode(',', array_keys($productArray)) 
-				.") ORDER BY `video_sort_order` asc";
+            
+            $query = "SELECT * 
+                FROM `[|PREFIX|]product_videos` 
+                WHERE video_product_id IN (" . implode(',', array_keys($productArray)) 
+                .") ORDER BY `video_sort_order` asc";
                 $result = $GLOBALS["ISC_CLASS_DB"]->Query($query);
-				
-				$videos = array();
+                
+                $videos = array();
                 while ($row = $GLOBALS["ISC_CLASS_DB"]->Fetch($result)) {
-                    $videos['video_product_id'][$row['video_id']] = array(
-						'title' => $row['video_title'], 
-						'desc' => $row['video_description'], 
-						'length' => $row['video_length']
-					);
+                    $videos[$row['video_product_id']][$row['video_id']] = array(
+                        'title' => $row['video_title'], 
+                        'desc' => $row['video_description'], 
+                        'length' => $row['video_length']
+                    );
                 }
         }
 
@@ -182,8 +180,8 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
                $product['images'] = isset($images[$productid])
                    ? $images[$productid]
                    : null;
-				   
-			   $product['videos'] = isset($videos[$productid])
+                   
+               $product['videos'] = isset($videos[$productid])
                    ? $videos[$productid]
                    : null;
         }
@@ -225,39 +223,59 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
     public function WriteRowTruckTrader($products)
     {
         foreach( $products as $id => $product) {
-			$prodName = trim($product['prodname']);
-			$prodName = $this->cleanXml($prodName);
-			$prodDesc = strip_tags($product['proddesc']);
-			$prodDesc = $this->cleanXml($prodDesc);
-			$prodBrand = $this->cleanXml($product['brandname']);
+            $prodName = trim($product['prodname']);
+            $prodName = $this->cleanXml($prodName);
+            $prodDesc = strip_tags($product['proddesc']);
+            $prodDesc = $this->cleanXml($prodDesc);
+            $prodBrand = $this->cleanXml($product['brandname']);
             $entry = array(
                 'name' => $prodName,
                 'price'  => $product['prodcalculatedprice'],
-            	'productDescription' => $prodDesc,
-            	'sku' => $product['prodcode'],
-            	'year' => 2013,
-            	'make' => 'Spartan Equipment',
-            	'model' => $prodBrand	
-            		
+                'productDescription' => $prodDesc,
+                'sku' => $product['prodcode'],
+                'year' => 2013,
+                'make' => 'Spartan Equipment',
+                'model' => $prodBrand    
             );
             
             if(!is_null($product['images'])) {
-            	try {
-				$i = 0;
-				$imageList = '';
-					foreach($product['images'] as $scalar) {
-						$image = new ISC_PRODUCT_IMAGE();
-						$image->populateFromDatabaseRow(scalar);
-						$imageList += '<image>' . imisc_html_escape($image->getResizedUrl(ISC_PRODUCT_IMAGE_SIZE_ZOOM, true, true, false)) . '</image>;
-						$i++
-					}
-					$entry['images'] = imageList;
-            	}
-            	catch (Exception $ex) {
-            	}
+                try {
+                    $i = 0;
+                    $imageList = '';
+                    foreach($product['images'] as $key) {
+                        $image = new ISC_PRODUCT_IMAGE();
+                        $image->populateFromDatabaseRow($key);
+                        $newImage = $image->getResizedUrl(ISC_PRODUCT_IMAGE_SIZE_ZOOM, true);
+                        $imageList .= PHP_EOL . '<image>' . $newImage . '</image>' . PHP_EOL;
+                        $i++;
+                    }
+                    
+                    $entry['images'] = $imageList;
+                }
+                catch (Exception $ex) {
+                      $entry['images'] = 'No Image Available';
+                }
             } else {
-				$entry['image'] = "No Image Available";
-			}
+                $entry['images'] = 'No Image Available';
+            }
+            
+            if(!is_null($product['videos'])) {
+                try {
+                    $i = 0;
+                    $videoList = '';
+                    foreach($product['videos'] as $key => $value) {
+                    $videoList  .= PHP_EOL . '<video>http://www.youtube.com/embed/'. $key . '</video>' . PHP_EOL;
+                    $i++;
+                }
+
+                $entry['videos'] = $videoList;
+                }
+                catch (Exception $ex) {
+                      $entry['videos'] = "No video Available";
+                } 
+            } else {
+                $entry['videos'] = "No video Available";
+            }
 
             $xml = "<Product>\n";
             foreach($entry as $k => $v) {
@@ -266,17 +284,8 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
             
             $xml .= "<categories>\n";
             foreach ($product['cattree'] as $catTree) {
-            	//$cats = explode('/', $catTree);
-            	//$catstring = '';
-            	//$slash = '';
-            	//if (is_array($cats)) {
-            		//foreach($cats as $cat => $value) {
-            			//$catstring .= $slash . $value;
-            			//$slash = '/';
-            			$catcleaned  = $this->cleanXml($catTree);
-            			$xml .= "<category>" .$catcleaned ."</category> \n";
-            		//}
-            	//}
+                $catcleaned  = $this->cleanXml($catTree);
+                $xml .= "<category>" .$catcleaned ."</category> \n";
             }
             $xml .= "</categories>\n";
             
@@ -284,14 +293,14 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
 
             fwrite($this->handle, $xml);
         }
-	}
-		
-		protected function cleanXml($value)
-		{
-			$iscClean = isc_html_escape($value);
-			$res = preg_replace('/[^\x20-\x7E]/','', $iscClean);
-			$res = preg_replace('/@/','', $res);
-			$res = preg_replace('/®/','', $res);
-			return $res;
-		}
+    }
+        
+        protected function cleanXml($value)
+        {
+            $iscClean = isc_html_escape($value);
+            $res = preg_replace('/[^\x20-\x7E]/','', $iscClean);
+            $res = preg_replace('/@/','', $res);
+            $res = preg_replace('/®/','', $res);
+            return $res;
+        }
 }
