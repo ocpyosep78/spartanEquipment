@@ -1,0 +1,43 @@
+<table>
+		<tr class="SubTotal" style="%%GLOBAL_HideShoppingCartShippingEstimator%%">
+						<td colspan="5" style="text-align: right;">
+							<a href="#" class="EstimateShippingLink" onclick="Cart.ToggleShippingEstimation(); return false;"><em><img src="../../../Freight-button.png" /></em></a>
+							<div class="EstimateShipping" style="display: none;">
+								<div class="EstimatedShippingMethods" style="display: none;">
+									<div class="ShippingMethodList">
+									</div>
+									<hr />
+								</div>
+								<dl>
+									<dt><span class="Required">*</span>&nbsp;%%LNG_ZipPostcode%%:</dt>
+									<dd><input type="text" class="Field100 Textbox" name="shippingZoneZip" id="shippingZoneZip" value="%%GLOBAL_ShippingZip%%" /></dd>
+								</dl>
+								<p class="Submit EstimateShippingButtons">
+									<span><a href="#" onclick="Cart.ToggleShippingEstimation();">%%LNG_Cancel%%</a> %%LNG_or%% </span><input type="button" onclick="Cart.EstimateShipping();" value="Estimate Shipping" />
+<!-- this is the original value for the cart estimate shipping %%LNG_CalculateShipping%	-->		
+            					</p>
+							</div>
+						</td>
+					</tr>
+                    <!--<tr style="display:%%GLOBAL_HideShoppingCartShippingCost%%" class="SubTotal">
+						<td colspan="4">%%LNG_Shipping%% (%%GLOBAL_ShippingProvider%%):</td>
+						<td><em class="ProductPrice">%%GLOBAL_ShippingCost%%</em></td>
+					</tr>
+					%%SNIPPET_FreeShippingCoupons%%
+					<tr style="display: %%GLOBAL_HideShoppingCartHandlingCost%%" class="SubTotal">
+						<td colspan="4">%%LNG_Handling%%:</td>
+						<td><em class="ProductPrice">%%GLOBAL_HandlingCost%%</em></td>
+					</tr>
+					%%GLOBAL_Taxes%%
+					%%SNIPPET_GiftCertificates%%
+					<tr class="SubTotal">
+						<td colspan="4">%%LNG_GrandTotal%%:</td>
+						<td><em class="ProductPrice">%%GLOBAL_CartTotal%%</em></td>
+					</tr>
+					%%GLOBAL_InclusiveTaxes%% -->
+				</tfoot>
+				<tbody>
+					%%SNIPPET_CartItems%%
+				</tbody>
+			</table>
+</table>

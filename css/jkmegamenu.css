@@ -1,0 +1,114 @@
+.megamenu{
+	position: absolute;
+	display: none;
+	left: 0;
+	top: 0;
+	border: 1px solid #950014;
+	border-width: 1px 1px;
+	z-index: 100;
+	top: 44px;
+	left: 0;
+	z-index: 99999;
+	background: #fff;
+	float: left;
+	/*--Bottom right rounded corner--*/
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	/*--Bottom left rounded corner--*/
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	display: none; /*--Hidden for those with js turned off--*/
+	font-size: 11px;
+	color: #FFF;
+	-moz-box-shadow: 2px 2px 3px #ccc;
+	-webkit-box-shadow: 2px 2px 3px #ccc;
+	box-shadow: 2px 2px 3px #ccc;
+	/* For IE 8 */
+   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 0px;
+}
+
+.megamenu .column{
+float: left;
+width: auto; /*width of each menu column*/
+margin-right: 20px;
+
+}
+.megamenu .column1{
+	float: left;
+	width: auto; /*width of each menu column*/
+	margin-right: 17px;
+	clear: both;
+
+}
+.megamenu .column ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+
+}
+
+.megamenu .column ul li{
+padding-bottom: 0px;
+}
+
+.megamenu .column h3{
+	margin: 0 0 0px 0;
+	color: #666;
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.megamenu .column ul li a{
+	text-decoration: none;
+	text-align: left;
+	font-size: 11px;
+	color: #666;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+
+.megamenu .column ul li a:hover{
+	color: #950014;
+	text-decoration: underline;
+}
+
+.megamenu .column1 ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+left: -280px;
+}
+
+.megamenu .column1 ul li{
+padding-bottom: 0px;
+}
+
+.megamenu .column1 h3{
+font: bold 12px Arial;
+color: #232323;
+margin-bottom: 3px;
+}
+
+.megamenu .column1 ul li a{
+	text-decoration: none;
+	text-align: left;
+	font-size: 12px;
+	color: #FFF;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+
+.megamenu .column1 ul li a:hover{
+	color: #232323;
+	text-decoration: underline;
+}

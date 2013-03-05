@@ -1,0 +1,261 @@
+<?php
+	
+class ISC_NDXREMOTE
+	{
+		public function __construct()
+		{
+			//parent::__construct();
+		}
+
+		public function HandleToDo()
+			{
+				
+			//$countryId = $_POST['countryId'];
+			$quantity = $_REQUEST['quantity_text']> 1 ?  $_REQUEST['quantity_text']: $_REQUEST['quantity_select'];
+			
+			$stateId =  $_REQUEST['stateId'];
+			//$stateName = $_REQUEST['stateName'];
+			$zipCode = $_REQUEST['zipCode'];
+			$product_id = $_REQUEST['product_id'];
+			
+			$weight = $_REQUEST['weight'];
+			
+			//$query = "SELECT * FROM [|PREFIX|]products WHERE productid= " .(int)$product_id;
+			//$result = $GLOBALS['ISC_CLASS_DB']->Query($query);
+			
+			//while ($row = $GLOBALS['ISC_CLASS_DB']->Fetch($result)) {
+				//$weight = $row['prodweight'];	
+			//}
+			
+			if($quantity < 1){
+				$quantity = 1;	
+			}
+
+			$weight = $weight * $quantity;
+			
+			$shippingmodule = $weight<150 ? "UPS" : "OLDDOMINION"; 
+			
+			switch($shippingmodule){
+				case "UPS":
+					try{
+						$ratearray = $this->ndx_upsshippingestimate($weight, $zipCode);
+						if(count($ratearray)<2){
+							throw new Exception("<b>Not a valid ZIP code.</b> <br/></n> Please call us for shipping prices at 1-888-888-1085");
+						}
+						echo "<table> <tr><td>SHIPPING METHOD</td> <td>PRICE</td>";
+						
+						foreach($ratearray as $key=>$value){
+							$value = sprintf("%01.2f",$value);
+							echo "<tr><td>$key</td><td style='color:red;'>" .'$' .$value ."</td><tr>";					
+						}
+						echo "</table>";
+					}
+					catch(Exception $e){
+						echo $e->getMessage();
+					}
+						break;
+				case "OLDDOMINION":
+					try{
+						$rate = $this->ndx_odshippingestimate($weight, $zipCode);
+						if(empty($rate)){
+							throw new Exception("Not a valid ZIP code. <br/>Please call us for shipping prices at 1-888-888-1085");
+						}
+						$rate = sprintf("%01.2f", $rate);
+						echo "<table>
+						<tr><td>SHIPPING METHOD</td> <td>PRICE</td>
+						<tr><td>OLD DOMINION(FREIGHT)</td><td style='color:red;'>" .'$' ."$rate</td><tr>						
+						</table>";
+							
+					}
+					catch(Exception $e){
+							echo $e->getMessage();	
+					}
+					break;	
+				default:
+					try{
+						$rate = $this->ndx_odshippingestimate($weight, $zipCode);
+						if(empty($rate)){
+							throw new Exception("Not a valid ZIP code. <br/>Please call us for shipping prices at 1-888-888-1085");
+						}
+						$rate = sprintf("%01.2f", $rate);
+						echo "<table>
+						<tr><td>SHIPPING METHOD</td> <td>PRICE</td>
+						<tr><td>OLD DOMINION(FREIGHT)</td><td style='color:red;'>" .'$' ."$rate</td><tr>						
+						</table>";
+							
+					}
+					catch(Exception $e){
+							echo $e->getMessage();	
+					}
+					break;	
+			}// end of switch statement
+			
+		}//end handletodo				
+			
+		public function ndx_upsshippingestimate($weight, $zipCode)
+		{
+			// The following array will be returned to the calling function.
+			// It will contain at least one ISC_SHIPPING_QUOTE object if
+			// the shipping quote was successful.
+			
+			$ups_quote = array();
+			$deliverytypes = array(
+			"UPS Ground" => "GND",
+			"UPS 2nd Day AIR" => "2DA",
+			"UPS Next Day" => "1DA"
+			);
+			$resultarray = array();
+			
+			// Connect to UPS.com to retrieve a live shipping quote
+			$result = "";
+			$valid_quote = false;
+			$action = "3";
+			$ups_url = "http://www.ups.com/using/services/rave/qcostcgi.cgi?accept_UPS_license_agreement=yes&";
+			
+			
+			// UPS will only recognise the ZIP part of ZIP+4 for US addresses - drop it
+			$zip = $zipCode;
+			
+			// replace either XXXXXYYYY or XXXXX-YYYY with just XXXX
+			// shouldn't affect quotes since UPS will throw an error for anything other than 5 digits
+			$zip = preg_replace('#^(\d{5})-?\d{4}$#', '\1', $zip);
+			
+			$price= '';
+			foreach($deliverytypes as $key => $deliverytype){
+
+				$post_vars = array(
+				"10_action" => $action,
+				"13_product" => $deliverytype,
+				"14_origCountry" => 'US',
+				"15_origPostal" => 21085,
+				"19_destPostal" => $zip,
+				"22_destCountry" => 'US',
+				"23_weight" => $weight,
+				"47_rate_chart" => "Regulary Daily Pickup",
+				"48_container" => '00',
+				"49_residential" => '1',
+				);
+				
+				// build a query here for use with either curl or fopen (though, this should probably be
+				// using PostToRemoteFileAndGetResponse)
+				
+				$post_vars = http_build_query($post_vars);
+				
+				if(function_exists("curl_exec")) {
+					// Use CURL if it's available
+					$ch = @curl_init($ups_url);
+					curl_setopt($ch, CURLOPT_POST, 1);
+					curl_setopt($ch, CURLOPT_POSTFIELDS, $post_vars);
+					curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+					
+					// Setup the proxy settings if there are any
+					if (GetConfig('HTTPProxyServer')) {
+						curl_setopt($ch, CURLOPT_PROXY, GetConfig('HTTPProxyServer'));
+						if (GetConfig('HTTPProxyPort')) {
+							curl_setopt($ch, CURLOPT_PROXYPORT, GetConfig('HTTPProxyPort'));
+						}
+					}
+				
+					if (GetConfig('HTTPSSLVerifyPeer') == 0) {
+						curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+					}
+					
+					$result = curl_exec($ch);
+					
+					if($result != "") {
+						$valid_quote = true;
+					}
+				}
+				else {
+					// Use fopen instead
+					if($fp = @fopen($ups_url . $post_vars, "rb")) {
+						$result = "";
+						
+						while(!feof($fp))
+						$result .= fgets($fp, 4096);
+						
+						@fclose($fp);
+						$valid_quote = true;
+					}
+				}
+			
+						
+			if($valid_quote) {
+				$result = explode("%", $result);
+				
+				if(count($result) > 5) {
+					$Error = false;
+					$quote_desc = "";
+					//return $quote
+					$resultarray[$key] = $result[8];
+				}
+			}
+				else {
+					$this->SetError($result[1]);
+					return false;
+				}
+		}//end of loop
+		return $resultarray;
+	}
+	
+	public function ndx_odshippingestimate($weight, $destzipcode){
+		$weight = round($weight);
+		//$this->_weight = $weight;
+		$this->_origin_zip = '21085';
+		$rate = '';
+		//$this->dest_zip= $zipcode;
+		//$this->_origin_zip = $origin_zip;
+		//$this->_destzip = $zipcode;
+		//$NmfcClass = $this->GetValue('NMFCclass');
+		//$odfl4meUser = $this->GetValue('odfl4meUser');
+		//$odfl4mePassword = $this->GetValue('odfl4mePassword');
+		//$odflCustomerAccount = $this->GetValue('odflCustomerAccount');
+		//$qty = $product->getQuantity();
+		
+		$freightArray = array(
+			'nmfcClass' => '85',
+			'weight'=> $weight,
+			'length' =>'',
+			'width' => '',
+			'height'=> '',
+			'handlingUnits' => '',
+			'density' => ''
+		);
+		
+		$accessorialArray = array(
+			//'code' => '',
+			//'value'=> ''
+		);
+			
+		$rateRequest = array(
+			'originPostalCode' => '21085',
+			'originCountry' => 'usa',
+			'destinationPostalCode' => $destzipcode,
+			'destinationCountry' => 'usa',
+			'requestorType' => 'S',
+			'odfl4meUser' => 'karidias',
+			'odfl4mePassword' => 'bobcat',
+			'odflCustomerAccount' => '13079024',
+			'freightArray' => $freightArray,
+			'accessorialArray' => $accessorialArray,
+			'mexicoServiceCenter' => '',
+			'currencyFormat' => '',
+			'requestReferenceNumber' =>''
+		);
+
+		$client = new SoapClient('http://www.odfl.com/wsRate_v1/services/ODRate/wsdl/ODRate-v1.wsdl');
+		$valid_quote = $client->getRateEstimate($rateRequest);
+		
+		
+		if(!isset($valid_quote->rateReturn->errorMessages)) {
+			$rate = (float)$valid_quote->rateReturn->rateEstimate->netFreightCharge;
+			return $rate;
+		}
+		else{
+			return;
+		}
+		return $olddominion_quote;
+	}
+	
+	}//end class

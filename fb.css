@@ -1,0 +1,169 @@
+#edi-container {
+	width: 519px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: center;
+}
+#edi-container img {
+	border: none;
+}
+#edi-header {
+	position: relative;
+	padding-top: 32px;
+	width: 519px;
+	height: 248px;
+	color: #fff;
+	text-align: left;
+	background: transparent url(http://208.109.234.225/~smmblogs/Facebook/EdiSales/header_03.jpg) scroll no-repeat 0% 0%;
+	overflow: hidden;
+}
+#edi-header a {
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+#edi-logo {
+	position: absolute;
+	top: 32px;
+	left: 16px;
+	display: block;
+	width: 256px;
+	height: 197px;
+	background: transparent url(http://208.109.234.225/~smmblogs/Facebook/EdiSales/logo_06.gif) scroll no-repeat 0% 0%;
+}
+#edi-contact {
+	list-style: none;
+	float: right;
+	margin: 0px;
+	margin-bottom: 16px;
+	padding: 0px;
+	width: 240px;
+}
+#edi-contact b {
+	color: #f00;
+	font-size: 15px;
+}
+#edi-contact strong {
+	font-size: 20px;
+}
+#edi-contact a {
+	font-size: 15px;
+}
+#edi-newsletter {
+	position: relative;
+	clear: right;
+	float: right;
+	padding: 32px 59px 0px 71px;
+	width: 107px;
+	height: 85px;
+	text-align: center;
+	background: transparent url(http://208.109.234.225/~smmblogs/Facebook/EdiSales/box.gif) scroll no-repeat bottom left;
+}
+#edi-newsletter input {
+	display: block;
+	margin-bottom: 5px;
+	padding: 0px;
+	width: 107px;
+	height: 24px;
+	background: transparent url(http://208.109.234.225/~smmblogs/Facebook/EdiSales/input.jpg) no-repeat 100% 0%;
+	border: none;
+}
+#edi-newsletter button {
+	display: block;
+	margin: 0 11px;
+	padding: 0px;
+	width: 85px;
+	height: 21px;
+	border: none;
+	text-indent: -9999em;
+	background: transparent url(http://208.109.234.225/~smmblogs/Facebook/EdiSales/button.jpg) scroll no-repeat 0% 0%;
+}
+#edi-nav {
+	clear: both;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+#edi-nav li {
+	float: left;
+	height: 29px;
+	background: #f00 none scroll no-repeat 0% 0%;
+}
+#edi-nav a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-indent: -9999em;
+}
+#edi-nav #edi-nav-about-us {
+	width: 78px;
+	background-image: url(http://208.109.234.225/~smmblogs/Facebook/EdiSales/nav01.jpg);
+}
+#edi-nav #edi-nav-product-series {
+	width: 105px;
+	background-image: url(http://208.109.234.225/~smmblogs/Facebook/EdiSales/nav02.jpg);
+}
+#edi-nav #edi-nav-guarantee {
+	width: 81px;
+	background-image: url(http://208.109.234.225/~smmblogs/Facebook/EdiSales/nav03.jpg);
+}
+#edi-nav #edi-nav-testimonials {
+	width: 93px;
+	background-image: url(http://208.109.234.225/~smmblogs/Facebook/EdiSales/nav04.jpg);
+}
+#edi-nav #edi-nav-warranty {
+	width: 71px;
+	background-image: url(http://208.109.234.225/~smmblogs/Facebook/EdiSales/nav05.jpg);
+}
+#edi-nav #edi-nav-contact-us {
+	width: 91px;
+	background-image: url(http://208.109.234.225/~smmblogs/Facebook/EdiSales/nav06.jpg);
+}
+#edi-welcome {
+	font-size: 14px;
+	font-weight: bold;
+}
+#edi-products {
+	list-style: none;
+	width: 519px;
+	padding: 0px;
+	border-top: 1px solid #ddd; 
+	text-align: left;
+	overflow: hidden;
+}
+#edi-products li {
+	float: left;
+	width: 259px;
+	height: 94px;
+	border-bottom: 1px solid #ddd;
+}
+#edi-products a {
+	position: relative;
+	display: block;
+	padding: 8px 42px 8px 117px;
+	width: 100px;
+	height: 76px;
+	color: #f00;
+	font-weight: bold;
+	text-decoration: none;
+}
+#edi-products a:hover {
+	text-decoration: underline;
+}
+#edi-products img {
+	position: absolute;
+	top: 1px;
+	left: 0px;
+	width: 117px;
+	height: 92px;
+}
+#edi-footer,
+#edi-footer ul {
+	color: #6B6969;
+	font-weight: bold;
+	text-align: left;
+}
+#edi-footer ul {
+	list-style: circle;
+}

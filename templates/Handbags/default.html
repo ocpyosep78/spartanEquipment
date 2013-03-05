@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+%%Panel.HTMLHead%%
+    <style>
+#Container {
+  background-color: #000000;
+  background-image: url("%%GLOBAL_IMG_PATH%%/%%GLOBAL_SiteColor%%/home-bk.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  height: 795px;
+  
+}
+        
+.Content.Widest {
+    width: 1041px;
+    margin: 0;
+    display: inline;
+    position: relative;
+}
+        
+#Menu {
+  background-image: url("%%GLOBAL_IMG_PATH%%/%%GLOBAL_SiteColor%%/menu-bk-home.png");
+  margin: 0;
+}
+      
+.miniskid {
+        position:absolute;
+        width:363px;
+        height:252px;
+        top:322px;
+        left:32px;
+        cursor: pointer;
+ 
+} 
+        
+.miniskid:hover {
+        background: url(%%GLOBAL_IMG_PATH%%/%%GLOBAL_SiteColor%%/mini-skid.png) no-repeat;
+} 
+        
+.tractor{
+        position:absolute;
+        width:330px;
+        height:255px;
+        top:206px;
+        left:227px;
+        cursor: pointer;
+        z-index: 3;
+
+}
+        
+.tractor:hover {
+        background: url(%%GLOBAL_IMG_PATH%%/%%GLOBAL_SiteColor%%/tractor.png) no-repeat;
+} 
+        
+.ministeer{
+        position:absolute;
+        width:237px;
+        height:142px;
+        top:218px;
+        left:504px;
+        cursor: pointer;
+        z-index: 5;
+
+}
+        
+.ministeer:hover {
+        background: url(%%GLOBAL_IMG_PATH%%/%%GLOBAL_SiteColor%%/mini-steer.png) no-repeat;
+} 
+        
+.miniexac{
+        position:absolute;
+        width:336px;
+        height:231px;
+        top:95px;
+        left:669px;
+        cursor: pointer;
+        z-index: 6;
+
+}
+        
+.miniexac:hover {
+        background: url(%%GLOBAL_IMG_PATH%%/%%GLOBAL_SiteColor%%/miniexac.png) no-repeat;
+} 
+        
+        
+</style>
+<body>
+<div id="Container">
+    %%Panel.Header%%
+    <div id="Wrapper">
+        %%Panel.WrapperBanner%%
+        
+            
+        <div class="Content Widest" id="LayoutColumn2" style="position:relative;">
+            <div class="miniskid" onClick="window.location.href='%%GLOBAL_ShopPathNormal%%/categories/Skid-Steer-Attachments/'"></div>
+            <div class="tractor" onClick="window.location.href='%%GLOBAL_ShopPathNormal%%/categories/Tractor-Attachments/'"></div>
+            <div class="ministeer" onClick="window.location.href='%%GLOBAL_ShopPathNormal%%/categories/Mini-Skid-Steer-Attachments/'"></div>
+            <div class="miniexac" onClick="window.location.href='%%GLOBAL_ShopPathNormal%%/categories/Mini-Excavator-Attachments/'"></div>
+            <a href="/categories/Store/"><div class="clickhere"></div></a>
+            %%Discount.FreeShippingEligibility%%
+            %%Banner.TopBanner%%
+            %%Panel.HomePageText%%
+            %%Panel.HomeMidSection%%
+            %%Banner.BottomBanner%%
+           
+            
+        </div>
+
+        <br class="Clear" />
+    </div>
+    %%Panel.Footer%%
+</div>
+
+</body>
+</html>

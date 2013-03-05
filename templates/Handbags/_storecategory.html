@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+%%Panel.HTMLHead%%
+<style>
+.Content .ProductList li {
+  margin: 6px 18px 10px;
+}
+.CompareButton, .ProductPriceRating, .Rating, .ProductCompareButton,.ProductActionAdd, .SortBox, #CategoryHeading h2 {display: none;}
+
+.Left .SubCategoryListGrid img{display: none;}
+    
+.RowDivider{display: none;}
+</style>
+<body>
+    <div id="Container">
+    %%Panel.Header%%
+
+    <div id="Wrapper" class="InsideWrapper">
+        %%Panel.WrapperBanner%%
+        %%Panel.CategoryBreadcrumb%%
+        %%Banner.TopBanner%%
+
+        <div class="Content Widest" id="LayoutColumn2">
+            %%Panel.CategoryHeading%%
+            %%SNIPPET_SubCategories%%
+            %%Panel.CategoryPagingTop%%
+           <!-- %%Panel.CategoryContent%%
+            %%Panel.CategoryPagingBottom%%
+            %%Banner.BottomBanner%%-->
+        </div>
+        <br class="Clear" />
+    </div>
+    %%Panel.Footer%%
+</div>
+</body>
+</html>

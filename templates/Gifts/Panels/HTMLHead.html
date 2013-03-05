@@ -1,0 +1,75 @@
+<head>
+    %%GLOBAL_OptimizerControlScript%%
+    
+    <title>%%Page.WindowTitle%%</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=%%GLOBAL_CharacterSet%%" />
+    <meta name="description" content="%%Page.MetaDescription%%" />
+    <meta name="keywords" content="%%Page.MetaKeywords%%" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="google-site-verification" content="cA4bubihkrI63D3bU8lg1-JOWAvo80PErcQNjxKNrbA" />
+        <link rel="shortcut icon" href="%%GLOBAL_Favicon%%" />
+    %%Page.CanonicalLink%%
+    %%Page.Robots%%
+    
+<link href="%%GLOBAL_ShopPath%%/templates/Gifts/Styles/styles.css?c52a0" media="all" type="text/css" rel="stylesheet" />
+<link href="%%GLOBAL_ShopPath%%/templates/Gifts/Styles/iselector.css?c52a0" media="all" type="text/css" rel="stylesheet" />
+<link href="%%GLOBAL_ShopPath%%/templates/Gifts/Styles/brown.css?c52a0" media="all" type="text/css" rel="stylesheet" />
+<!--[if IE]><link href="%%GLOBAL_ShopPath%%/templates/Gifts/Styles/ie.css?c52a0" media="all" type="text/css" rel="stylesheet" /><![endif]-->
+<link href="%%GLOBAL_ShopPath%%/javascript/jquery/plugins/imodal/imodal.css?c52a0" type="text/css" rel="stylesheet" />
+<link href="%%GLOBAL_ShopPath%%/javascript/jquery/plugins/jqzoom/jqzoom.css?c52a0" type="text/css" rel="stylesheet" />
+<link href="%%GLOBAL_ShopPath%%/javascript/jquery/plugins/lightbox/lightbox.css?c52a0" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="%%GLOBAL_ShopPath%%/templates/Gifts/Styles/jquery.treeview.css" />
+<meta name="google-site-verification" content="FQa85etfmxXXeH_szg4OaABIKrh5h6UtBuxkvDGaZ-o" />    
+    <!-- Tell the browsers about our RSS feeds -->
+    %%GLOBAL_HeadRSSLinks%%
+    
+    <!-- Include visitor tracking code (if any) -->
+    %%GLOBAL_TrackingCode%%
+    
+    %%GLOBAL_DesignModeStyleSheet%%
+    
+    %%GLOBAL_HeaderImageStyle%%
+    
+    <script type="text/javascript" src="%%GLOBAL_ShopPath%%/javascript/jquery.js?%%GLOBAL_JSCacheToken%%"></script>
+    <script type="text/javascript" src="%%GLOBAL_ShopPath%%/javascript/menudrop.js?%%GLOBAL_JSCacheToken%%"></script>
+    <script type="text/javascript" src="%%GLOBAL_ShopPath%%/javascript/common.js?%%GLOBAL_JSCacheToken%%"></script>
+    <script type="text/javascript" src="%%GLOBAL_ShopPath%%/javascript/iselector.js?%%GLOBAL_JSCacheToken%%"></script>
+    <script type="text/javascript" src="%%GLOBAL_ShopPath%%/javascript/jquery.cookie.js?%%GLOBAL_JSCacheToken%%"></script>
+    <script type="text/javascript" src="%%GLOBAL_ShopPath%%/javascript/jquery.treeview.js?%%GLOBAL_JSCacheToken%%"></script>
+    
+    <script type="text/javascript">
+    //<![CDATA[
+    config.ShopPath = '%%GLOBAL_ShopPath%%';
+    config.AppPath = '';
+    var ThumbImageWidth = %%GLOBAL_ProductThumbImageWidth%%;
+    var ThumbImageHeight = %%GLOBAL_ProductThumbImageHeight%%;
+    var actives = [];
+    
+   $(document).ready(function(){
+      $("#red").find("li").each(function() {
+            if ($("a", this).attr("href") != window.location) $(this).addClass("closed").removeClass("open");
+            else actives[actives.length] = this;
+       });
+      
+        $(actives).parents("li").addClass("closed");
+        
+        $("#red").treeview({
+            animated: "fast"
+
+          // unique: false
+
+
+            //persist: "cookie"
+    });
+   });
+
+
+    //]]>
+    </script>
+    
+    %%GLOBAL_RTLStyles%%
+<script type="text/javascript" src="%%GLOBAL_ShopPath%%/javascript/jquery/plugins/imodal/imodal.js?c52a0"></script>
+    <script type="text/javascript" src="%%GLOBAL_ShopPath%%/javascript/quicksearch.js"></script>    %%GLOBAL_RTLStyles%%
+</head>

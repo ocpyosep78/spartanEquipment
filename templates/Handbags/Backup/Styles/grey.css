@@ -1,0 +1,470 @@
+/* Color: Grey */
+
+body {
+	background: #fff;
+	color: #211b16;
+}
+a {
+	color: #211b16;
+	font-weight: normal;
+	text-decoration: underline;
+}
+a:hover {
+	color: #555555;
+}
+h2 {
+}
+h3 {
+}
+hr {
+	background: #ccc;
+	color: #ccc;
+}
+
+
+#Container {
+	background: #fff;
+}
+
+
+#TopMenu {
+	background-image: url(../../Handbags/images/grey/TopMenuBg.gif);
+}
+#TopMenu li {
+}
+#TopMenu li.First {
+	background-image: none;
+}
+#TopMenu li a, #TopMenu li span {
+}
+#TopMenu li span a {
+}
+#TopMenu li a:hover {
+	text-decoration: underline;
+}
+
+#Menu {
+	background: #211b16;
+	margin: 1px 0 0 0;
+}
+#Menu li {
+}
+#Menu li a {
+	color: #fff;
+}
+#Menu li a:hover {
+	color: #e0e0e0;
+	text-decoration: underline;
+}
+#Menu li ul {
+}
+#Menu li ul li a {
+	background: #8f867f;
+}
+#Menu li ul li a:hover {
+	color: #e0e0e0;
+}
+
+
+#Outer {
+}
+#Wrapper {
+}
+#Header {
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+
+
+#Logo {
+}
+#Logo h1 {
+	color: #fff;
+}
+#Logo h1 a {
+	color: #fff;
+}
+
+
+#SearchForm {
+	background: url(../../Handbags/images/grey/SearchBg.gif) 12px 1px no-repeat;
+}
+#SearchForm form {
+}
+#SearchForm label {
+	display: none;
+}
+#SearchForm input {
+	background: #fff;
+	border: 1px solid #ccc;
+}
+#SearchForm .Button {
+	border: 0;
+}
+#SearchForm a {
+	color: #8f867f;
+}
+#SearchForm p {
+	color: #8f867f;
+}
+
+
+.Left {
+	background: #211b16;
+	color: #fff;
+}
+.Left .Block {
+}
+.Left h2 {
+	color: #8f867f;
+}
+.Left li {
+	border-bottom: 1px solid #58514b;
+}
+.Left li a {
+	color: #fff;
+}
+.Left a {
+	color: #fff;
+}
+.Left li a:hover {
+	color: #fff;
+}
+.Left .Block li, .Right .Block li {
+}
+
+
+
+.Content {
+}
+.Content h2 {
+	color: #8f867f;
+}
+.Content a {
+}
+.Content.Wide {
+}
+.Content.Widest {
+}
+
+
+.Right {
+	background: #211b16;
+	color: #fff;
+}
+.Right .Block {
+}
+.Right h2 {
+	color: #8f867f;
+}
+.Right li {
+	border-bottom: 1px solid #58514b;
+}
+.Right li a {
+	color: #fff;
+}
+.Right a {
+	color: #fff;
+}
+.Right a:hover, .Right a:hover strong {
+	color: #fff;
+}
+.Right hr {
+	background: transparent;
+	color: #333;
+	border: #333;
+}
+
+
+#Footer {
+	border-top: 1px solid #ccc;
+}
+
+.NewsletterSubscription {
+	color: #fff;
+}
+.NewsletterSubscription input {
+	border: 1px solid #ccc;
+}
+
+
+.Content .ProductList li,
+.fastCartContent .ProductList li {
+}
+.Content .ProductList li:hover,
+.Content .ProductList li.Over,
+.fastCartContent .ProductList li:hover,
+.fastCartContent .ProductList li.Over {
+}
+.ProductList a {
+}
+.ProductList a:hover {
+}
+.ProductList .ProductImage {
+	background: #fff;
+	padding: 4px;
+	border: 2px solid #e0e0e0;
+}
+.Content .ProductList strong, .Content .ProductList strong a {
+}
+.ProductPrice, .ProductList em {
+	color: #e60000;
+}
+.ProductList .Rating {
+	color: #6a6a6a;
+}
+.Content .FeaturedProducts .ProductList li {
+}
+.Content .FeaturedProducts .ProductList .ProductImage {
+}
+.Content .FeaturedProducts .ProductList li:hover, .Content .FeaturedProducts .ProductList li.Over {
+}
+
+
+.Right .TopSellers li {
+	background-image: none;
+}
+.Right .TopSellers li .TopSellerNumber { /* Contains the number of the item */
+	color: #fff;
+}
+.Right .TopSellers li.TopSeller1 .ProductImage { /* No1 seller box */
+}
+.Right .TopSellers li.TopSeller1 {
+	background: #fff;
+}
+.Right .TopSellers li.TopSeller1 a {
+	color: #000;
+}
+.Right .TopSellers li.TopSeller1 .ProductDetails { /* No1 seller box */
+}
+.Right .TopSellers li.TopSeller1 .TopSellerNumber {
+	color: #fff;
+	background: url(../../Handbags/images/grey/No1SellerNumberBg.gif) 0 0 no-repeat;
+}
+.Right .TopSellers li.TopSeller1 .Rating {
+}
+
+.Breadcrumb {
+	border-bottom: 1px solid #e0e0e0;
+}
+
+
+.CompareItem { width:200px; border-left: solid 1px #e0e0e0; }
+.CompareFieldName { font-weight:bold; border-bottom: 1px solid #e0e0e0; }
+.CompareFieldTop { border-bottom:solid 1px #e0e0e0; }
+.CompareFieldTop a:hover { color:#e60000; }
+.CompareCenter { border-left:solid 1px #e0e0e0; border-bottom:solid 1px #e0e0e0; }
+.CompareLeft { border-left:solid 1px #e0e0e0; border-bottom:solid 1px #e0e0e0; }
+
+.ViewCartLink {
+	color: #fff;
+	background: url('../../Handbags/images/grey/Cart.gif') no-repeat 6px 3px;
+}
+
+table.CartContents, table.General {
+	border: 1px solid #e0e0e0;
+}
+
+table.CartContents thead tr th, table.General thead tr th {
+	background: #ece9e6;
+	color: #555555;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.CartContents tfoot .SubTotal td {
+	border-top: 1px solid #e0e0e0;
+	color: #000;
+}
+
+.MiniCart .SubTotal {
+	color: #e60000;
+}
+
+.JustAddedProduct {
+	background: #3a312a;
+}
+
+.JustAddedProduct strong, .JustAddedProduct a {
+	color: #fff;
+}
+
+.CategoryPagination {
+	color: #000;
+	background: #ece9e6;
+}
+
+.CheckoutRedeemCoupon { background: #ece9e6; padding: 10px; width: 300px; border: 1px solid #e0e0e0; margin-bottom: 10px; }
+
+.SubCategoryList, .SubBrandList {
+	background: #ece9e6;
+}
+
+.InfoMessage {
+	background: #ece9e6 url('../../Handbags/images/InfoMessage.gif') no-repeat 5px 8px;
+	color: #555;
+}
+
+.SuccessMessage {
+	background: #E8FFDF url('../../Handbags/images/SuccessMessage.gif') no-repeat 5px 8px;
+	color: #555;
+}
+
+.SpecificInfoMessage {
+	color: #555;
+	background-color: #f8e4d1;
+}
+
+.ErrorMessage {
+	background: #FFECEC url('../../Handbags/images/ErrorMessage.gif') no-repeat 5px 8px;
+	color: #555;
+}
+
+.ComparisonTable tr:hover td, .ComparisonTable tr.Over td {
+	background: #ece9e6;
+}
+
+.QuickSearchAllResults a { background: url('../../Handbags/images/grey/QuickSearchAllResultsButton.gif') no-repeat right; }
+
+.QuickSearchHover td{ background: #ece9e6; }
+
+.SortBox {
+	color: #fff;
+}
+.SearchTips .Examples {
+	background: #ece9e6;
+	border: 1px solid #e0e0e0;
+}
+
+#SearchPageHeader .FloatRight a {
+	float: left;
+	padding: 7px 0 0 0;
+}
+#SearchPageHeader .FloatRight a img {
+	padding: 5px;
+}
+
+/* Express Checkout */
+.ExpressCheckoutBlock .ExpressCheckoutTitle {
+	background: #000;
+	color: #fff;
+}
+
+.ExpressCheckoutBlockCollapsed .ExpressCheckoutTitle {
+	background: #efefef;
+	color: #888;
+}
+
+.ExpressCheckoutBlockCompleted .ExpressCheckoutCompletedContent {
+	color: #888;
+}
+
+/* General Tables */
+table.General tbody tr td {
+	border-top: 1px solid #efefef;
+}
+
+/* Tabbed Navigation */
+.TabNav {
+	border-bottom: 1px solid #211b16;
+}
+
+.TabNav li a {
+	border: 1px solid #211b16;
+	background: #ece9e6;
+}
+
+.TabNav li a:hover {
+	background-color: #8f867f;
+	color: #fff;
+}
+
+.TabNav li.Active a {
+	border-bottom: 1px solid #fff;
+	background: #fff;
+	color: #000;
+}
+
+/* Product Videos */
+
+#VideoContainer {
+	border: 1px solid #cccccc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.currentVideo {
+	background-color: #ddf0f6;
+}
+
+.videoRow:hover {
+	background-color: #efefef;
+}
+
+.CartContents .ItemShipping th {
+	border-bottom-color: #e0e0e0;
+	border-top-color: #e0e0e0;
+	background: #ece9e6;
+	color: #555555;
+}
+
+/* Category flyout styles (theme) */
+
+/* Child menu items, does not include the always-showing root level */
+#SideCategoryList .sf-menu li ul li {
+}
+
+/* Root menu item when expanded */
+#SideCategoryList .sf-menu .sfHover a,
+/* Child menu item links */
+#SideCategoryList .sf-menu li ul a {
+	background-color: #8b847d;
+}
+
+/* Parent menu items of a child being hovered (not including root-level items) */
+#SideCategoryList .sf-menu li ul li:hover > a,
+/* Child menu item while hovering */
+#SideCategoryList .sf-menu li ul a:focus,
+#SideCategoryList .sf-menu li ul a:hover,
+#SideCategoryList .sf-menu li ul a:active {
+}
+
+/* End: category flyout styles */
+
+
+
+
+/* start fast cart styles */
+#fastCartContainer {
+	font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+	font-size: 13px;
+}
+.fastCartContent h2 {
+	color: #009E0F;
+	background-color:transparent;
+}
+.fastCartContent h3 {
+	color: #BB6F21;
+	background-color:transparent;
+}
+.fastCartSummaryBox {
+	background-color: #DDFEDA;
+}
+.fastCartContent .fastCartTop a,
+.fastCartContent .ProductList .ProductDetails a {
+	color: #075899;
+}
+.fastCartContent .ProductPrice,
+.fastCartContent .ProductList em {
+	color: #800000;
+}
+.fastCartContent .Quantity {
+	color: #828DB3;
+}
+.fastCartContent p {
+	color: #444444;
+}
+.fastCartContent .ProductList li {
+	background-color: #FFF;
+}
+/* end fast cart styles */

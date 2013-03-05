@@ -1,0 +1,9 @@
+cache/*
+product_downloads/*
+product_images/*
+.buildpath
+.settings
+.project
+config/*
+tmp
+FTP/*
