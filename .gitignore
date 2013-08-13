@@ -7,3 +7,9 @@ product_images/*
 config/*
 tmp
 FTP/*
+listings/*
+listings_v2/*
+pdf/*
+pics/*
+specs/*
+test/*
