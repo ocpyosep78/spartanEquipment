@@ -46,8 +46,8 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
 
     protected function WriteHeader()
     {
-        $header = '<?xml version="1.0" encoding="UTF-8"?>';
-        $header .= '<Products>';
+        $header = "<?xml version='1.0' encoding='UTF-8'?>\n";
+        $header .= "<Products>\n";
         fwrite($this->handle, $header);
     }
 
@@ -229,65 +229,94 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
             $prodDesc = $this->cleanXml($prodDesc);
             $prodBrand = $this->cleanXml($product['brandname']);
             $entry = array(
-                'name' => $prodName,
-                'price'  => $product['prodcalculatedprice'],
-                'productDescription' => $prodDesc,
-                'sku' => $product['prodcode'],
-                'year' => 2013,
-                'make' => 'Spartan Equipment',
-                'model' => $prodBrand    
+            	'Class' => '',
+            	'Category' => '',
+            	'Manufacturer' => $prodBrand,
+            	'Model' => '',
+            	'Name' => $prodName,
+            	'Year' => 2013,
+            	'Serial_Number' => '',
+            	'Stock_Number' => '',
+            	'Hours' => '',
+            	'Horse_Power' => '',
+            	'Capacity' => '',
+            	'Drive' => '',
+            	'Condition' => '',
+            	'Description' => $prodDesc,
+            	'price'  => $product['prodcalculatedprice'],
+            	'LocationCity' => '',
+            	'LocationState' => '',
+            	'LocationCountry' => '',
+            	'Daily_Rental_Price' => '',
+            	'Weekly_Rental_Price' => '',
+            	'Monthly_Rental_Price' => '',
+                'Sku' => $product['prodcode'],
+                'Make' => 'Spartan Equipment',
             );
             
             if(!is_null($product['images'])) {
                 try {
-                    $i = 0;
+                    $i = 1;
                     $imageList = '';
                     foreach($product['images'] as $key) {
+                    	if($i > 5)
+                    	{
+                    		break;
+                    	}
                         $image = new ISC_PRODUCT_IMAGE();
                         $image->populateFromDatabaseRow($key);
                         $newImage = $image->getResizedUrl(ISC_PRODUCT_IMAGE_SIZE_ZOOM, true);
-                        $imageList .= PHP_EOL . '<image>' . $newImage . '</image>' . PHP_EOL;
+                        $entry['image'.$i] = $newImage;
                         $i++;
                     }
-                    
-                    $entry['images'] = $imageList;
                 }
                 catch (Exception $ex) {
-                      $entry['images'] = 'No Image Available';
+                      $entry['image1'] = '';
                 }
             } else {
-                $entry['images'] = 'No Image Available';
+                $entry['image1'] = '';
             }
             
             if(!is_null($product['videos'])) {
                 try {
-                    $i = 0;
+                    $i = 1;
                     $videoList = '';
                     foreach($product['videos'] as $key => $value) {
-                        $videoList  .= PHP_EOL . '<video>http://www.youtube.com/embed/'. $key . '</video>' . PHP_EOL;
+                    	if($i > 5)
+                    	{
+                    		break;
+                    	}
+                        $entry['video'.$i]  .='http://www.youtube.com/embed/'. $key;
                         $i++;
                 }
 
-                $entry['videos'] = $videoList;
                 }
                 catch (Exception $ex) {
-                      $entry['videos'] = "No video Available";
+                      $entry['video1'] = "";
                 } 
             } else {
-                $entry['videos'] = "No video Available";
+                $entry['video1'] = "";
             }
 
-            $xml = "<Product>\n";
+            $xml = "\t<Product>\n";
             foreach($entry as $k => $v) {
-                $xml .= "\t<".$k.">".$v."</".$k.">\n";
+            	if($k == 'Category')
+            	{
+            		$i = 1;
+            		foreach ($product['cattree'] as $catTree) {
+            			if($i > 1)
+            			{
+            				break;
+            			}
+            			$catcleaned  = $this->cleanXml($catTree);
+            			$xml .= "\t\t<$k>" .$catcleaned ."</$k> \n";
+            			$i++;
+            		}
+            		continue;
+            	}
+            	
+                $xml .= "\t\t<".$k.">".$v."</".$k.">\n";
             }
-            
-            $xml .= "<categories>\n";
-            foreach ($product['cattree'] as $catTree) {
-                $catcleaned  = $this->cleanXml($catTree);
-                $xml .= "<category>" .$catcleaned ."</category> \n";
-            }
-            $xml .= "</categories>\n";
             
             $xml .= "\t</Product>\n";
 
