@@ -201,7 +201,7 @@ CLASS ISC_PRODUCTDETAILS_PANEL extends PANEL
 
 			$GLOBALS['LeasePrice'] = preg_replace("/[^0-9.]/", "", $GLOBALS['ProductPrice']);
 			
-			if ($GLOBALS['LeasePrice'] <= 500) {
+			if ($GLOBALS['LeasePrice'] <= 5000) {
 				$GLOBALS['HideLease'] = "display: none;";
 			}		
 			
