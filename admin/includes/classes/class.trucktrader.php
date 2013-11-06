@@ -102,9 +102,10 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
         $brands = &$this->_brands;
 
         //get the product information
-        $query = "SELECT productid, prodname, prodcode, proddesc, prodprice,
+        $query = "SELECT productid, prodname, prodcode, proddesc, prodprice, 
                   prodcalculatedprice, prodbrandid, prodcatids
                   FROM [|PREFIX|]products
+        		  WHERE prodvisible = '1'
                   ORDER BY productid
                   ";
 
@@ -231,33 +232,37 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
             $entry = array(
             	'Class' => '',
             	'Category' => '',
+            	'Attachment_Type' => '',
+            	'Seriers' => '',
             	'Manufacturer' => $prodBrand,
-            	'Model' => '',
-            	'Name' => $prodName,
+            	'Model' => $prodName,
             	'Year' => 2013,
             	'Serial_Number' => '',
-            	'Stock_Number' => '',
+            	'Stock_Number' => $product['prodcode'],
             	'Hours' => '',
             	'Horse_Power' => '',
             	'Capacity' => '',
             	'Drive' => '',
             	'Condition' => '',
+            	'Attachment1' => '',
+            	'Attachment2' => '',
+            	'Attachment3' => '',
+            	'Brief_Description' => $prodName,
             	'Description' => $prodDesc,
-            	'price'  => $product['prodcalculatedprice'],
-            	'LocationCity' => '',
-            	'LocationState' => '',
-            	'LocationCountry' => '',
+            	'List_Price'  => $product['prodcalculatedprice'],
+            	'currency' => 'U.S. Dollars',
+            	'Equipment_Status' => '',
+            	'Status_Details' => '',
             	'Daily_Rental_Price' => '',
             	'Weekly_Rental_Price' => '',
             	'Monthly_Rental_Price' => '',
-                'Sku' => $product['prodcode'],
-                'Make' => 'Spartan Equipment',
             );
             
             if(!is_null($product['images'])) {
                 try {
                     $i = 1;
                     $imageList = '';
+                    $entry['Pictures'] = '';
                     foreach($product['images'] as $key) {
                     	if($i > 5)
                     	{
@@ -266,36 +271,37 @@ class ISC_ADMIN_TRUCKTRADER extends ISC_ADMIN_AJAXEXPORTER
                         $image = new ISC_PRODUCT_IMAGE();
                         $image->populateFromDatabaseRow($key);
                         $newImage = $image->getResizedUrl(ISC_PRODUCT_IMAGE_SIZE_ZOOM, true);
-                        $entry['image'.$i] = $newImage;
+                        $entry['Pictures'] .= $newImage.' ';
                         $i++;
                     }
                 }
                 catch (Exception $ex) {
-                      $entry['image1'] = '';
+                      $entry['Pictures'] = '';
                 }
             } else {
-                $entry['image1'] = '';
+                $entry['Pictures'] = '';
             }
             
             if(!is_null($product['videos'])) {
                 try {
                     $i = 1;
                     $videoList = '';
+                    $entry['Videos'] = '';
                     foreach($product['videos'] as $key => $value) {
                     	if($i > 5)
                     	{
                     		break;
                     	}
-                        $entry['video'.$i]  .='http://www.youtube.com/embed/'. $key;
+                        $entry['Videos'] .= 'http://www.youtube.com/embed/'. $key.' ';
                         $i++;
                 }
 
                 }
                 catch (Exception $ex) {
-                      $entry['video1'] = "";
+                      $entry['Videos'] = "";
                 } 
             } else {
-                $entry['video1'] = "";
+                $entry['Videos'] = "";
             }
 
             $xml = "\t<Product>\n";
