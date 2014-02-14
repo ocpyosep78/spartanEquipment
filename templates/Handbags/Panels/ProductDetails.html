@@ -1,13 +1,27 @@
 <style>
-.addthis_button{
-    float: right !important;
-    margin-right: 60px;
-    text-align: left;
-    width: 200px;
-}
-.BestPrice{
-    /* margin-top: -25px;*/
+    .addthis_button{
+        float: right !important;
+        margin-right: 60px;
+        text-align: left;
+        width: 200px;
     }
+    .BestPrice{
+        /* margin-top: -25px;*/
+    }
+    .financeWrapper{
+        font-family: 'Trajan Pro',sans-serif;
+        width: 175px;
+        background-color: #b11b1d;
+        margin-left: 20px;
+        height: 64px;
+        color: white;
+        font-size: 16px;
+    }
+
+    .finance{
+        padding-top: 2px;
+    }
+
 </style>
 
 
@@ -25,6 +39,21 @@ var ProductMaxZoomWidth = %%GLOBAL_ProductMaxZoomWidth%%;
 var ProductMaxZoomHeight =  %%GLOBAL_ProductMaxZoomHeight%%;
 var ProductTinyWidth = %%GLOBAL_ProductMaxTinyWidth%%;
 var ProductTinyHeight =  %%GLOBAL_ProductMaxTinyHeight%%;
+var NDX_ProductPrice = parseFloat('%%GLOBAL_ProductPrice%%'.replace(/[^0-9.]/g, ''));
+var NDX_Desposit = NDX_ProductPrice * .10;
+var NDX_payment = parseFloat((((NDX_ProductPrice - NDX_Desposit) * 1.11) / 60));
+$( document ).ready(function() {
+    if(NDX_payment > 50)
+    {
+        NDX_Desposit = '$' + parseFloat(NDX_Desposit, 10).toFixed(2).replace(/(d)(?=(d{3})+.)/g, "$1,").toString();
+        NDX_payment = '$' + parseFloat(NDX_payment, 10).toFixed(2).replace(/(d)(?=(d{3})+.)/g, "$1,").toString();
+        var financeMess = NDX_Desposit + ' Down & ' + NDX_payment + '/Month';
+
+        $('#financeOption').html(financeMess);
+        $('.financeWrapper').show();
+    }
+});
+
 
 %%GLOBAL_ProdImageJavascript%%
 
@@ -179,23 +208,31 @@ var productId = %%GLOBAL_ProductId%%;
                 </div>
             </div>
             %%SNIPPET_ProductAddToCart%%
-             %%GLOBAL_AddThisLink%%
-               
-            
+            %%GLOBAL_AddThisLink%%
             %%SNIPPET_ProductExpectedReleaseDate%%
-           
             %%GLOBAL_FacebookLikeButtonBelow%% 
         </div>
            
         <div class="RightBox">
-<p style="width: 200px;">%%Panel.CartContent1%%</p>
-<a href="/pages/contact-us/"><div class="contactusBtn"></div></a>
+            <p style="width: 200px;">%%Panel.CartContent1%%</p>
+            <a href="/pages/contact-us/"><div class="contactusBtn"></div></a>
 
-<a href="javascript:void();" onClick="window.print();return false;"><div class="printPage"></div></a>
+            <a href="javascript:void();" onClick="window.print();return false;"><div class="printPage"></div></a>
             <a href="/pages/Spartan-Visa®-Card.html"><img src="%%GLOBAL_IMG_PATH%%/%%GLOBAL_SiteColor%%/spartan-visa-credit-card-promo.jpg" /></a>
- <iframe id = "LeaseStationButton" style = "height: 70px; width: 168px; overflow: hidden;%%GLOBAL_HideLease%%" scrolling = "no" rel = "nofollow" frameborder = "0" src = "https://secure.LeaseStation.com/marketing/financing-buttons.cfm?VendorCode=mtnr7c5&ButtonSize=CheckWithGradiant&AmountToFinance=%%GLOBAL_LeasePrice%%&ProductId=%%GLOBAL_SKU%%&ProductName=%%GLOBAL_ProductName%%"></iframe> 
-        </div> 
-            <div class="BestPrice"> <img src="/img/best-pricing.fw.png"></div></div>
+ <!--<iframe id = "LeaseStationButton" style = "height: 70px; width: 168px; overflow: hidden;%%GLOBAL_HideLease%%" scrolling = "no" rel = "nofollow" frameborder = "0" src = "https://secure.LeaseStation.com/marketing/financing-buttons.cfm?VendorCode=mtnr7c5&ButtonSize=CheckWithGradiant&AmountToFinance=%%GLOBAL_LeasePrice%%&ProductId=%%GLOBAL_SKU%%&ProductName=%%GLOBAL_ProductName%%"></iframe>-->
+            <div class="financeWrapper">
+                <div class="finance">
+                    <div class='financeDetails'>
+                        Own This For
+                        <br />
+                        <div id='financeOption'></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="BestPrice"> <img src="/img/best-pricing.fw.png"></div></div>
         <!-- end of product main div tag-->
         
 

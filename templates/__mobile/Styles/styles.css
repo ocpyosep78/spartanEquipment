@@ -4,10 +4,36 @@
 	padding: 0;
 	-webkit-text-size-adjust: none;
 }
+.ProductThumbImage.MobileProductThumb img {
+  width: 100%;
+}
+.Content.Wide {
+  background-color: #FFFFFF;
+  padding-bottom: 10px;
+}
+.Content.Wide a,.Content.Widest a{
+  color: #000;
+}
+.Content.Widest {
+  background-color: #FFFFFF;
+  padding-bottom: 10px;
+}
 
+#LayoutColumn2 a{color: #000;}
+
+#CategoryHeading {margin-bottom: 0;}
+#CategoryHeading h2{color: #000;}
+
+#CategoryBreadcrumb li:last-child, #ProductBreadcrumb li:last-child{
+  color: #FF0000;
+}
+
+#sort{display: none;}
+
+#ProductDescription img, #ProductMiscDetails h3{display:none;}
 /* General */
 body {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Arial, sans-serif;
 	font-size: 0.8em;
 	height: 100%;
 }
@@ -26,9 +52,19 @@ p {
 	line-height: 1.3;
 	margin-bottom: 12px;
 }
+
+p.clear{
+    clear: both;
+    height: 0;
+    margin:0;
+    padding:0;
+}
+
+.linkColorDetails{display: block;color: #ff0000 !important;}
+
 a {
 	font-weight: normal;
-	text-decoration: underline;
+	text-decoration: none;
 }
 h2, .TitleHeading {
 	font-size: 1.5em;
@@ -52,9 +88,20 @@ h3 {
 	padding: 10px 0 0 0;
 	margin: 0 0 10px 0;
 }
+
+.SubCategoryList li {
+  border-top: 1px solid #efefef;
+  padding-left: 10px !important;
+  background: url("/templates/__mobile/images/icon_nav_arrow.png") no-repeat 100% 50%;
+}
+
+.SubCategoryList li:nth-last-child(2){border-bottom: 1px solid #efefef !important;}
+
+.SubCategoryList h3{color: #000;padding-left: 10px !important;}
 h4 {
 	font-size: 1.1em;
 	margin-bottom: 4px;
+	
 }
 img, img a {
 	border: 0;
@@ -79,6 +126,10 @@ hr {
 	background: #c7d7db;
 	height: 1px;
 	border:0;
+}
+
+#ProductDescription, #ProductVideos, #ProductByCategory, #ProductWarranty, #ProductOtherDetails, #SimilarProductsByTag, #ProductVendorsOtherProducts, #ProductReviews, #SimilarProductsByCustomerViews {
+  padding: 10px 5px 20px 5px;
 }
 
 /* Forms */
@@ -171,8 +222,9 @@ hr {
 /* iPhone Top Navigational Menu (with icons) */
 #IphoneIconMenu {
 	width: 100%;
-	height: 45px;
-	margin-bottom: 5px;
+	/*height: 45px;*/
+	background: #000;
+	padding-top:10px;
 }
 #IphoneIconMenu ul {
 	list-style: none;
@@ -201,6 +253,85 @@ hr {
 	margin: 0;
 }
 
+/*Main Nav Links*/
+.mainBar{
+	border-bottom: 1px solid #ff0000;
+	padding: 5px 0;
+	height: 30px;
+	margin:0;
+	width: 100%;
+}
+.mainNav {
+	list-style: none;
+	padding: 0 !important;
+	margin: 0 0 30px 3px !important;
+
+}
+.mainNav li {
+	list-style: none;
+	float: left;
+	height: 25px;
+	margin: 8px 0 0 0;
+	padding: 0;
+	width: 25%;
+	background: url("/templates/__mobile/images/red-divider.png") no-repeat scroll 80% 0 rgba(0, 0, 0, 0);
+}
+
+.mainNav li.lastLI{background: none;}
+
+.mainNav li a {
+	display: block;
+	height: 16px;
+	text-decoration: none;
+	font-size: .9em;
+	color: #fff;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+	text-transform:uppercase;}
+
+.callUs{padding: 8px 0;text-align: center;}
+
+/*Home Attachments*/
+.homeAttachBox{
+	width:100%;
+	padding: 15px;
+	background: #C7C8CA;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#C7C8CA,endColorstr=#fff) !important;
+	background: -webkit-gradient(linear,left top,left bottom, color-stop(0.50, rgb(199,200,202)),color-stop(0.85, rgb(255,255,255))) !important;
+    background: -moz-linear-gradient(center top,rgb(199,200,202)50%,rgb(255,255,255)85%) !important;
+    border-top: 1px solid #ff0000;
+	border-bottom: 1px solid #ff0000;
+}
+.homeAttachments{width: 50%;float:left;height: 150px;}
+.homeAttachBox p span {
+  font-size: 0.9em;
+  width: 50%;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.homeAttachments a{color: #000;}
+
+/*Category Home Attachments*/
+.catAttachBox{
+	width:100%;
+	padding: 15px;
+	background: #fff;
+	/*border-top: 1px solid #ff0000;*/
+	/*border-bottom: 1px solid #ff0000;*/
+}
+.catAttachments{width: 50%;float:left; height: 150px;}
+.catAttachments p.catImg{height: 80px;}
+.catAttachBox p span {
+  font-size: 0.9em;
+  width: 60%;
+  display: inline-flex;
+  text-align: center;
+  font-weight: bold;
+}
+.catAttachBox a{color: #000;text-transform: uppercase;}
 /* Pages Menu */
 #Menu ul {
 	margin: 0;
@@ -223,7 +354,7 @@ hr {
 #Wrapper {
 	clear: both;
 	position: relative;
-	margin: 0 5px 0 5px;
+	margin: 0;
 }
 
 /* Header */
@@ -232,7 +363,7 @@ hr {
 }
 
 #LogoImage {
-	margin: 0 5px 5px 5px;
+	margin: 5px 0 5px 0;
 }
 #Header #CartLink {
 	position: absolute;
@@ -256,9 +387,7 @@ hr {
 }
 #Logo h1 a {
 }
-#LogoImage {
-	margin: 5px 0 5px 0;
-}
+
 
 
 /* Full Site Link */
@@ -280,7 +409,7 @@ hr {
 	clear: both;
 	display: block;
 	padding: 0;
-	-webkit-border-radius: 5px;
+	/*-webkit-border-radius: 5px;*/
 }
 body.home .Content {
 	padding: 0;
@@ -303,6 +432,7 @@ body.home .Content {
 	clear: both;
 	display: block;
 	padding: 0 0 10px 0;
+	background-color: #fff;
 }
 .Right ul {
 	margin: 0;
@@ -342,7 +472,7 @@ ul.AccountOrdersList {
 	clear: both;
 	list-style: none;
 	margin: 0;
-	padding: 5px 0 5px 15px;
+	padding: 5px 0 5px 0;
 }
 
 .Block#SideCategoryList li ul {
@@ -400,6 +530,7 @@ body.sitemap .Content li ul li:last-child {
 #SearchForm {
 	padding: 0;
 	margin-bottom: 5px;
+	display: none;
 }
 
 #SearchForm .BlockContent {
@@ -441,8 +572,26 @@ body.sitemap .Content li ul li:last-child {
 #Footer {
 	clear: both;
 	font-size: 0.9em;
-	padding: 10px 30px;
-	text-align: center;
+	padding: 0 0 0 3px;
+	/*text-align: center;*/
+}
+
+#Footer h3{color: #C51925;}
+
+.FooterLinks ul{
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	width: 250px;
+}
+
+.FooterLinks li{float:left;padding: 0 2px 0 15px;text-align: center;}
+
+#footercol-5{border-bottom: 1px solid #333;}
+
+#Footer > p {
+  text-align: center;
+  color: #fff;
 }
 
 /* Newsletter Subscription Form */
@@ -487,6 +636,7 @@ body.sitemap .Content li ul li:last-child {
 	list-style: none;
 	padding: 5px 0 5px 0;
 	margin: 0;
+	height: 170px !important;
 }
 .Content .BlockContent .ProductList li {
 	margin-left: -10px;
@@ -496,15 +646,15 @@ body.sitemap .Content li ul li:last-child {
 .Content .ProductList .ProductImage {
 	float:left;
 	background: #fff;
-	width: 90px !important;
-	height: 90px !important;
+	width: 150px !important;
+	height: 150px !important;
 	overflow: hidden;
 	text-align:center;
 	margin: 5px 10px 10px 10px;
 }
 .Content .ProductList .ProductImage img {
-	max-width: 90px !important;
-	max-height: 90px !important;
+	/*max-width: 90px !important;*/
+	/*max-height: 90px !important;*/
 }
 .Content .ProductList .ProductDetails {
 	margin-bottom: 3px;
@@ -536,7 +686,7 @@ body.sitemap .Content li ul li:last-child {
 	margin-top: 3px;
 }
 .ProductList .ProductActionAdd {
-	margin: 0 0 5px 0;
+	margin: 0;
 }
 .ProductList .ProductActionAdd a {
 	font-size: 0.9em;
@@ -667,6 +817,7 @@ body.sitemap .Content li ul li:last-child {
 .Breadcrumb li a {
 	padding-right: 10px;
 	background: url('../images/BreadcrumbSep.gif') no-repeat right;
+	color: #000;
 }
 .FindByCategory ul, .FindByCategory li {
 	list-style: none;
@@ -738,8 +889,9 @@ body.sitemap .Content ul:after
 }
 .SortBox {
 	font-size: 0.95em;
-	color: #444;
+	color: #fff;
 	margin: 7px 5px 10px 0;
+	display: none;
 }
 .CompareButton {
 	clear: both;
@@ -862,6 +1014,7 @@ ul.ReturnsList dt {
 }
 
 /* Product Details */
+#ProductDetails h2{color: #000;}
 .PrimaryProductDetails h2 {
 	text-align: center;
 	background-image: none;
@@ -906,6 +1059,7 @@ ul.ReturnsList dt {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	clear: both;
 }
 .ProductOptionList li {
 	margin-bottom: 3px;
@@ -1312,7 +1466,7 @@ a.ChangeLink {
 }
 
 #ProductMiscDetails .ProductDetailsGrid {
-	margin-left: 25px;
+	margin-left: 0;
 }
 
 .ProductAddToCart {
@@ -1326,12 +1480,12 @@ a.ChangeLink {
 }
 
 .ProductAddToCart.ConfigurableProduct .DetailRow {
-	text-align: right;
+	text-align: left;
 	margin-bottom: 10px;
 }
 
 .ProductAddToCart.ConfigurableProduct .DetailRow .Label {
-	width: 140px;
+	width: 80px;
 	overflow: hidden;
 	display: block;
 	float: left;
@@ -1394,9 +1548,21 @@ p.QuantityInput, p.AddCartButton {
 .ProductActionAdd {
 	display: block;
 	margin-top: 3px;
+	background: url('../images/mobile-addtocart-bk.png') 0 0 no-repeat;
+	width: 125px;
+	height: 28px;
+	float:left;
+	text-align:left;
 }
 .ProductActionAdd a, .ProductActionAdd strong a {
-	text-decoration: underline;
+	text-decoration: none !important;
+	color: #fff !important;
+	padding: 0;
+	margin: 5px 0 0 0;
+	display:block;
+	/*border: 1px solid #000;*/
+	text-align: center;
+	width: 120px;
 }
 
 .TagList {
@@ -1505,6 +1671,7 @@ p.QuantityInput, p.AddCartButton {
 }
 #VideoList {
 	padding-left: 5px;
+	margin-top: 20px;
 }
 .VideoSeparator {
 	clear: both;
@@ -1561,7 +1728,7 @@ p.QuantityInput, p.AddCartButton {
 	padding:0;
 	margin: 0;
 	width: 275px;
-	height: 265px;
+	height: auto;
 }
 #VideoSingle {
 	padding-left: 10px;
@@ -1569,7 +1736,7 @@ p.QuantityInput, p.AddCartButton {
 }
 #VideoContainer {
 	padding: 5px 0 5px 5px;
-	height: 265px;
+	height: 525px;
 }
 .HideElement {
 	display: none;
@@ -1878,8 +2045,8 @@ body.sitemap .Content li:before,
 .SubBrandGridList li:before,
 .WishlistList > li:before,
 .AccountOrdersList li:before {
-	content:"\00bb";
-	font-family: Verdana;
+	/*content:"\00bb";*/
+	/*font-family: Verdana;*/
 	font-weight: bold;
 	color: #7fc709;
 	font-size: 14px;
@@ -1898,22 +2065,63 @@ body.sitemap .Content li,
 	position: relative;
 }
 
+
+
+
+
+
+
+/*Ed A
+/* iPhone 4 Portrait CSS */
+
+@media screen and (orientation:portrait) {
+ 	#ProductReviews_Tab, #ProductByCategory_Tab{display: none;}
+
+#LogoImage {
+	width: 100%;
+}
+
+} 
+
+
 /* iPhone Landscape CSS */
 @media screen and (min-width: 321px) {
-	.Content .ProductList li {
-		clear: none;
-		width:45% !important;
-		min-height: 8em;
-		margin: 0 0 10px 0;
-		float: left;
-	}
+	
+#LogoImage {
+	width: 90%;
+}
+	
+.mainNav li {background: url("/templates/__mobile/images/red-divider.png") no-repeat scroll 70% 0 rgba(0, 0, 0, 0);}
+.mainNav li.first a {text-align:center;padding-right: 50px;}
+	h2, .TitleHeading {
+	padding: 5px 10px 0 10px;}
 
 	.Content .ProductList li.Even {
-		background: transparent;
-	}
+		background: transparent;}
+		
+	.homeAttachBox {
+  text-align: center;
+}
+.homeAttachBox p span {
+  width: 100%;
+}
 
+.homeAttachments {
+  width: 47%;
+}
+
+.catAttachBox {
+  text-align: center;
+}
+.catAttachments {
+  width: 47%;
+}
+
+.catAttachBox p span {
+  width: auto;
+}
 	/* Reduce thumbnail size */
-	.Content .ProductList .ProductImage {
+	/*.Content .ProductList .ProductImage {
 		max-width: 80px !important;
 		max-height: 80px !important;
 		margin: 5px 10px 25px 10px;
@@ -1921,7 +2129,7 @@ body.sitemap .Content li,
 	.Content .ProductList .ProductImage img {
 		max-width: 80px !important;
 		max-height: 80px !important;
-	}
+	}*/
 
 	.ProductAddToCart .DetailRow .Label {
 		width: 170px;

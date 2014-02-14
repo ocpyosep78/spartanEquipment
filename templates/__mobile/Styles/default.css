@@ -1,6 +1,6 @@
 /* Color: Grey */
 html, body {
-	background: #fff;
+	background: #000;
 	color: #2a2a2a;
 }
 body[orient="landscape"] {
@@ -8,16 +8,16 @@ body[orient="landscape"] {
 }
 
 a {
-	color: #004b91;
+	color: #fff;
 	font-weight: normal;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 
 h2, body.sitemap .Content h3 {
-	color: #2a2a2a;
-	text-shadow: 1px 1px 0 #fff;
-	background: -webkit-gradient(
+	color: #C51925;
+	/*text-shadow: 1px 1px 0 #fff;*/
+	/*background: -webkit-gradient(
 	    linear,
 	    left top,
 	    left bottom,
@@ -33,7 +33,7 @@ h2, body.sitemap .Content h3 {
 	    color-stop(0.4, #cecfd0),
 	    color-stop(0.6, #e3e3f4),
 	    color-stop(0.8, #f3f3f4)
-	) 100 100 100 100  repeat repeat;
+	) 100 100 100 100  repeat repeat;*/
 }
 
 .PrimaryProductDetails h2 {
@@ -90,7 +90,11 @@ input[type="text"], input[type="password"], input[type=email], textarea {
 }
 
 #Header {
-	background: #fff;
+	background: #000;
+}
+#Logo{
+	border-top: 1px solid #ff0000;
+	border-bottom: 1px solid #ff0000;
 }
 #Logo h1 {
 	color: #2a2a2a;
@@ -103,7 +107,7 @@ input[type="text"], input[type="password"], input[type=email], textarea {
 .Right .Block {
 }
 .Right li {
-	border-bottom: 1px solid #d6d9de;
+	/*border-bottom: 1px solid #d6d9de;*/
 }
 /* For Pages Menu - Sub Pages */
 .Right li ul {
@@ -111,7 +115,7 @@ input[type="text"], input[type="password"], input[type=email], textarea {
 }
 
 .Content {
-	background: #fff;
+	/*background: #fff;*/
 }
 body.home .Content {
 	background: transparent;
@@ -148,7 +152,7 @@ body.sitemap .Content li,
 .SubBrandGridList li,
 .WishlistList li,
 .AccountOrdersList li {
-	border-bottom: 1px solid #d6d9de;
+	/*border-bottom: 1px solid #d6d9de;*/
 }
 
 .Block#SideCategoryList li ul,
@@ -307,6 +311,7 @@ table.CartContents, table.General {
 .TabNav li a {
 	border: 1px solid #a3a3a3;
 	background: #e2e5e6;
+	color: #000;
 }
 .TabNav li.Active a {
 	border-bottom: 1px solid #fff;
@@ -358,7 +363,7 @@ p.RelatedSearches {
 }
 
 .ProductPrice, .ProductList em, .ProductAddToCart .PriceDetailRow {
-	color: #800000;
+	color: #ff0000;
 }
 
 #SideProductAddToWishList, #SideProductAddToWishList a {
@@ -391,17 +396,17 @@ ul.ReturnsList fieldset {
 a.Button,
 input[type=submit],
 input[type=button] {
-	border: 1px solid #689207;
-	color: #fff;
+	border: 1px solid #C51925;
+	color: #fff !important;
 	background: -webkit-gradient(
 	    linear,
 	    left top,
 	    left bottom,
-	    color-stop(0, #bbe17c),
-	    color-stop(0.1, #90cb2c),
-	    color-stop(0.48, #9fd546),
-	    color-stop(0.51, #81c80d),
-	    color-stop(1, #7ec509)
+	    color-stop(0, #8C0000),
+	    color-stop(0.1, #8C0000),
+	    color-stop(0.48, #8C0000),
+	    color-stop(0.51, #8C0000),
+	    color-stop(1, #8C0000)
 	);
 	text-shadow: 1px 1px 3px #666;
 }

@@ -1,6 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 %%Panel.HTMLHead%%
+<style>
+.Content{background-color: #fff;}
+#SideProductRelated{display: none;}	
+</style>
 <body>
 	<script type="text/javascript" src="%%GLOBAL_AppPath%%/javascript/product.functions.js?%%GLOBAL_JSCacheToken%%"></script>
 	<script type="text/javascript" src="%%GLOBAL_AppPath%%/javascript/product.js?%%GLOBAL_JSCacheToken%%"></script>
@@ -10,17 +14,26 @@
 		%%Panel.WrapperBanner%%
 		<div class="Content Wide" id="LayoutColumn1">
 			%%Panel.HeaderSearch%%
+			%%Panel.ProductBreadcrumb%%
+			<div class="FreeShipping"><a href="/pages/FREE-shipping/"><img width="100%" src="/product_images/uploaded_images/free-shipping-banner-mobile.png"></a></div>
 			%%Panel.ProductDetails%%
+			<!-- %%Panel.ProductMiscDetails%% -->
 			%%Panel.ProductTabs%%
 			%%Panel.ProductDescription%%
-			%%Panel.ProductMiscDetails%%
-			%%Panel.ProductVendorsOtherProducts%%
-			%%Panel.ProductReviews%%
-			%%Panel.SideProductRelated%%
+            %%Panel.ProductVideos%%
+            %%Panel.ProductOtherDetails%%
+            %%Panel.ProductWarranty%%
+            %%Panel.SimilarProductsByTag%%
+            %%Panel.ProductReviews%%
+            %%Panel.ProductByCategory%%
+            %%Panel.ProductVendorsOtherProducts%%
+            %%Panel.SimilarProductsByCustomerViews%%
+         
+
 		</div>
-		<div class="Right" id="LayoutColumn2">
+		<!-- <div class="Right" id="LayoutColumn2">
 			%%Panel.PagesMenu%%
-		</div>
+		</div> -->
 
 	</div>
 	%%Panel.Footer%%

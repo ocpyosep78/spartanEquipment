@@ -1,22 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 %%Panel.HTMLHead%%
+<style>
+#CategoryHeading .BlockContent .SubCategoryList{display: none;}
+.SubCategoryList h3{display: none;}	
+	</style>
 <body>
 	<div id="Container">
 	%%Panel.Header%%
 	<div id="Wrapper">
 		%%Panel.WrapperBanner%%
+		
 		<div class="Content Wide %%GLOBAL_ExtraCategoryClass%%" id="LayoutColumn1">
 			%%Panel.HeaderSearch%%
+			
+			%%Panel.CategoryBreadcrumb%%
+			<div class="FreeShipping"><a href="/pages/FREE-shipping/"><img width="100%" src="/product_images/uploaded_images/free-shipping-banner-mobile.png"></a></div>
 			%%Panel.CategoryHeading%%
+            %%SNIPPET_SubCategories%%
 			%%Panel.CategoryPagingTop%%
 			%%Panel.CategoryContent%%
 			%%Panel.CategoryPagingBottom%%
-		</div>
-		<div class="Right" id="LayoutColumn2">
-			%%Panel.PagesMenu%%
-		</div>
-
+		</div>  
 	</div>
 	%%Panel.Footer%%
 </div>
