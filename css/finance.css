@@ -1,0 +1,123 @@
+.previewForm{
+    padding-top: 15px;
+    float: left;
+    width: 38%;
+}
+.label{
+    float: left;
+    width: 150px;
+    font-family: "Helvetica Neue",Arial,sans-serif;
+}
+.prevInput{
+    float: left;
+}
+.pageInfo{
+    padding-top: 50px;
+}
+
+.Field200 {
+    width: 200px;
+}
+
+/*#previewFrm input#name {*/
+/*background: url("images/user.png") no-repeat scroll 5px 4px #FFFFFF;*/
+/*}*/
+
+#previewFrm input:focus {
+    border-color: rgba(41, 92, 161, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(41, 92, 161, 0.6);
+    color: #333333;
+    outline: 0 none;
+}
+
+/*#financeForm input select {*/
+/*border-color: #DEDEDE;*/
+/*border-style: solid;*/
+/*border-width: 1px;*/
+/*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;*/
+/*color: #777777;*/
+/*display: block;*/
+/*font-family: "Helvetica Neue",Arial,sans-serif;*/
+/*font-size: 1.55em;*/
+/*margin-bottom: 20px;*/
+/*transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;*/
+/*}*/
+
+#businessInfo{
+    float: left;
+    width: 50%;
+    height: 1200px;
+}
+
+#financeForm{
+    padding-left: 70px;
+}
+
+.shipToOther{
+    display: none;
+}
+
+.shipToLabel{
+    display: block;
+}
+
+.secondOwner{
+    display: none;
+    padding-top: 15px;
+}
+
+.underline{
+    color: #0000ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.terms{
+    padding-top: 15px;
+}
+
+#termsWrapper{
+    position: fixed;
+    left: 34%;
+    top: 25%;
+    margin-top: -2.5em;
+    border: 1px solid #4C3C1B;
+    padding: 2px;
+    width: 695px;
+    height: 430px;
+    background-color: #EFEECB;
+    z-index: 9999;
+    border-radius:25px;
+    display: none;
+}
+#termsMessageBox {
+    position: absolute;
+    z-index: 9999;
+    width: 670px;
+    height: 405px;
+    margin: 10px;
+    padding: 0;
+    background: #ccc;
+    box-shadow: 8px 10px 10px rgba(0,0,0,0.5),
+    inset 8px 10px 10px rgba(255,255,255,0.75);
+    -o-box-shadow: 8px 10px 10px rgba(0,0,0,0.5),
+    inset 8px 10px 10px rgba(255,255,255,0.75);
+    -webkit-box-shadow: 8px 10px 10px rgba(0,0,0,0.5),
+    inset 8px 10px 10px rgba(255,255,255,0.75);
+    -moz-box-shadow: 8px 10px 10px rgba(0,0,0,0.5),
+    inset 8px 10px 10px rgba(255,255,255,0.75);
+    border-radius:25px;
+}
+.termsMessage{
+    padding: 20px;
+}
+
+.loadingImg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.closeMessage{
+    cursor: pointer;
+    text-align: right;
+}

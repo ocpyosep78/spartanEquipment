@@ -16,10 +16,15 @@
         height: 64px;
         color: white;
         font-size: 16px;
+        cursor: pointer;
     }
 
     .finance{
         padding-top: 2px;
+    }
+
+    .financeDetails{
+        padding-top: 10px;
     }
 
 </style>
@@ -29,6 +34,35 @@
 %%SNIPPET_ProductImageZoomer%%
 
 <script type="text/javascript">//<![CDATA[
+
+var productId = %%GLOBAL_ProductId%%;
+var NDX_ProductPrice = parseFloat('%%GLOBAL_ProductPrice%%'.replace(/[^0-9.]/g, ''));
+//var NDX_Desposit = NDX_ProductPrice * .10;
+var NDX_payment = parseFloat(((NDX_ProductPrice * 5.25) / 60));
+$( document ).ready(function() {
+    if(NDX_payment > 50)
+    {
+        //NDX_Desposit = '$' + parseFloat(NDX_Desposit, 10).toFixed(2).replace(/(d)(?=(d{3})+.)/g, "$1,").toString();
+        NDX_payment = '$' + parseFloat(NDX_payment, 10).toFixed(2).replace(/(d)(?=(d{3})+.)/g, "$1,").toString();
+        var financeMess = NDX_payment + '/Month';
+
+        $('#financeOption').html(financeMess);
+        $('.financeWrapper').show();
+    }
+
+    $('#financing').click(function(){
+        goToFinancePage();
+    });
+});
+
+function goToFinancePage()
+{
+    var product = productId;
+    var link = "%%GLOBAL_AppPath%%/finance.php?action=finance&product="+product;
+    alert(link);
+    window.location.href = link;
+}
+
 var ThumbURLs = new Array();
 var ProductImageDescriptions = new Array();
 var CurrentProdThumbImage = %%GLOBAL_CurrentProdThumbImage%%;
@@ -39,20 +73,6 @@ var ProductMaxZoomWidth = %%GLOBAL_ProductMaxZoomWidth%%;
 var ProductMaxZoomHeight =  %%GLOBAL_ProductMaxZoomHeight%%;
 var ProductTinyWidth = %%GLOBAL_ProductMaxTinyWidth%%;
 var ProductTinyHeight =  %%GLOBAL_ProductMaxTinyHeight%%;
-var NDX_ProductPrice = parseFloat('%%GLOBAL_ProductPrice%%'.replace(/[^0-9.]/g, ''));
-var NDX_Desposit = NDX_ProductPrice * .10;
-var NDX_payment = parseFloat((((NDX_ProductPrice - NDX_Desposit) * 1.11) / 60));
-$( document ).ready(function() {
-    if(NDX_payment > 50)
-    {
-        NDX_Desposit = '$' + parseFloat(NDX_Desposit, 10).toFixed(2).replace(/(d)(?=(d{3})+.)/g, "$1,").toString();
-        NDX_payment = '$' + parseFloat(NDX_payment, 10).toFixed(2).replace(/(d)(?=(d{3})+.)/g, "$1,").toString();
-        var financeMess = NDX_Desposit + ' Down & ' + NDX_payment + '/Month';
-
-        $('#financeOption').html(financeMess);
-        $('.financeWrapper').show();
-    }
-});
 
 
 %%GLOBAL_ProdImageJavascript%%
@@ -220,7 +240,7 @@ var productId = %%GLOBAL_ProductId%%;
             <a href="javascript:void();" onClick="window.print();return false;"><div class="printPage"></div></a>
             <a href="/pages/Spartan-Visa®-Card.html"><img src="%%GLOBAL_IMG_PATH%%/%%GLOBAL_SiteColor%%/spartan-visa-credit-card-promo.jpg" /></a>
  <!--<iframe id = "LeaseStationButton" style = "height: 70px; width: 168px; overflow: hidden;%%GLOBAL_HideLease%%" scrolling = "no" rel = "nofollow" frameborder = "0" src = "https://secure.LeaseStation.com/marketing/financing-buttons.cfm?VendorCode=mtnr7c5&ButtonSize=CheckWithGradiant&AmountToFinance=%%GLOBAL_LeasePrice%%&ProductId=%%GLOBAL_SKU%%&ProductName=%%GLOBAL_ProductName%%"></iframe>-->
-            <div class="financeWrapper">
+            <div id="financing" class="financeWrapper">
                 <div class="finance">
                     <div class='financeDetails'>
                         Own This For
