@@ -196,7 +196,7 @@
                         Ship to Address
                     </div>
                     <div class="prevInput">
-                        <input placeholder="Ship to Address" id="ship_to_other" class="required Textbox Field200" type="text" value="%%GLOBAL_ship_to_other%%" name="ship_to_other" />
+                        <input placeholder="Ship to Address" id="ship_to_address_other" class="required Textbox Field200" type="text" value="%%GLOBAL_ship_to_address_other%%" name="ship_to_address_other" />
                     </div>
                     <br /><br />
                     <div class="label">
@@ -216,10 +216,10 @@
                     </div>
                     <br /><br />
                     <div class="label">
-                        Zip
+                        Zip Code
                     </div>
                     <div class="prevInput">
-                        <input placeholder="Zip" id="zip" class="required Textbox Field200" type="text" value="%%GLOBAL_zip%%" name="zip" />
+                        <input placeholder="Zip" id="ship_to_zip_other" class="required Textbox Field200" type="text" value="%%GLOBAL_ship_to_zip_other%%" name="ship_to_zip_other" />
                     </div>
 
 
@@ -363,7 +363,7 @@
                             Ownership
                         </div>
                         <div class="prevInput">
-                            <select id="ownership_second_owner" name="ownership_second_ownder">';
+                            <select id="ownership_second_owner" name="ownership_second_owner">';
                                 <option value=""></option>
                                 %%GLOBAL_ownershipSelect%%
                             </select>
@@ -430,12 +430,15 @@
                 </div>
 
                 <div class="terms">
-                    <input type="checkbox" id="acceptTerms" name="acceptTerms" value="" />
+                    <input type="checkbox" id="accept_terms" name="accept_terms" value="" />
                     Click to accept <span class="underline" onclick='hideShowTerms(1)'>Terms &amp; Conditions</span> of this application.
                 </div>
                 <div style="padding-top: 20px">
                     <input type="button" id="submit" name="submit" value="Submit Application" />
                 </div>
+
+                <input type="hidden" name="productId" id="productId" value="%%GLOBAL_productId%%" />
+                <input type="hidden" name="productName" id="productName" value="%%GLOBAL_productName%%" />
             </div>
         </form>
 
