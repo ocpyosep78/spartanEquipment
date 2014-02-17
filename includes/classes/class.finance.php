@@ -56,31 +56,10 @@ class ISC_FINANCE
         "productId" => "",
         "productName" => ""
     );
-    /*
-     * enter all files types in lowercase
-     */
-    var $validExt = array(
-        "jpg",
-        "jpeg",
-        "ai",
-        "eps",
-        "tiff",
-        "tif",
-        "png",
-        "gif",
-        "bmp",
-        "doc",
-        "docx"
-    );
-    var $image = array();
-    var $tmpDirectory = "previewTmp/";
-    var $targetPath = "";
+
     var $toEmail = "jfranco@newdynamx.com";
-    var $fromEmail = "preview@promotionalproductsonline.com";
-    var $fileType = "";
-    var $imageContents = "";
-    var $minSize = 100000;//100kb
-    var $maxSize = 5000000;//5mb
+    var $fromEmail = "financing@spartanequipment.com";
+
 
     public function HandlePage()
     {
@@ -115,34 +94,23 @@ class ISC_FINANCE
         if(!empty($_POST))
         {
             $this->setFormData();
-            $this->validateFields();
-            $this->save_upload_image();
-            $this->setFileContents();
-            $this->sendPreviewEmail();
-            $this->deleteUploadedImage();
+            //$this->validateFields();
+            $this->sendFinanceEmail();
             $this->goToThankYouPage();
         }
     }
 
-    public function deleteUploadedImage()
-    {
-        if(!empty($this->image) && $this->image['name'] != '')
-        {
-            unlink($this->getTargetPath());
-        }
-    }
-
-    public function sendPreviewEmail()
+    public function sendFinanceEmail()
     {
         $this->setGlobals();
 
         $emailTemplate = FetchEmailTemplateParser();
-        $emailTemplate->SetTemplate("product_preview_email");
+        $emailTemplate->SetTemplate("product_finance_email");
         $message = $emailTemplate->ParseTemplate(true);
 
         $sendTo = $this->getToEmail();
         $store_name = GetConfig('StoreName');
-        $subject = sprintf("Product Preview Requested", $store_name);
+        $subject = sprintf("Product Financing Requested", $store_name);
         require_once(ISC_BASE_PATH . "/lib/email.php");
         $obj_email = GetEmailClass();
         $obj_email->Set('CharSet', GetConfig('CharacterSet'));
@@ -150,89 +118,7 @@ class ISC_FINANCE
         $obj_email->Set('Subject', $subject);
         $obj_email->AddBody("html", $message);
         $obj_email->AddRecipient($sendTo , "", "h");
-        $obj_email->AddAttachmentData($this->getFileContents(), 'image.'.$this->getFileType());
         $email_result = $obj_email->Send();
-    }
-
-    public function save_upload_image ()
-    {
-        if(!empty($this->image) && $this->image['name'] != '')
-        {
-            $files_entry = $this->image;
-            // check if we know how to deal with this file type
-            // isolate the file type
-            $fn = basename($files_entry['name']);
-            $this->setFileType($this->get_wfiletype($fn));
-            $ft = $this->getFileType();
-
-            if (! in_array(strtolower($ft), $this->validExt)) {
-
-                $etype = implode (", ", $this->validExt);
-                return ("we can only process these file types: $etype");
-            }
-
-            $this->setTargetPath($files_entry['name']);
-            $target_path = $this->getTargetPath();
-            $target_dir_noslash = substr ($this->tmpDirectory, 0, strlen($this->tmpDirectory)-1);
-
-            // does directory exist?
-            if (! move_uploaded_file($files_entry['tmp_name'], $_SERVER["DOCUMENT_ROOT"]."/".$target_path))	{
-                return "Error uploading file (#3)";
-            }
-            return TRUE;
-        }
-    }
-
-    public function setFileContents()
-    {
-        $location = $_SERVER["DOCUMENT_ROOT"]."/".$this->getTargetPath();
-        $this->imageContents = file_get_contents($location);
-    }
-
-    public function getFileContents()
-    {
-        return $this->imageContents;
-    }
-
-    public function setFileType($value)
-    {
-        $this->fileType = $value;
-    }
-
-    public function getFileType()
-    {
-        return $this->fileType;
-    }
-
-    public function getToEmail()
-    {
-        return $this->toEmail;
-    }
-
-    public function setTargetPath($name)
-    {
-        $this->targetPath = $this->tmpDirectory . $name;
-    }
-
-    public function getTargetPath()
-    {
-        return $this->targetPath;
-    }
-
-    public function getMinSize()
-    {
-        return $this->minSize;
-    }
-
-    public function getMaxSize()
-    {
-        return $this->maxSize;
-    }
-
-    public function get_wfiletype ($fn)
-    {
-        //	return (substr($fn,strrpos($fn, '.')+1));
-        return (substr(strrchr($fn, '.'), 1));
     }
 
     public function validateFields()
@@ -305,6 +191,11 @@ class ISC_FINANCE
         }
     }
 
+    public function getToEmail()
+    {
+        return $this->toEmail;
+    }
+
     public function setFormData()
     {
         foreach($_POST as $key => $val)
@@ -314,15 +205,6 @@ class ISC_FINANCE
                 $this->setFieldArray($key, $val);
             }
         }
-        if(!empty($_FILES))
-        {
-            $this->setImageArray($_FILES['image']);
-        }
-    }
-
-    public function setImageArray($val)
-    {
-        $this->image = $val;
     }
 
     public function setFieldArray($field, $val)
@@ -432,10 +314,8 @@ class ISC_FINANCE
             $GLOBALS['errDisplay'] = " style='display: none'";
         }
 
-        $GLOBALS['SNIPPETS']['PreviewForm'] .= $GLOBALS['ISC_CLASS_TEMPLATE']->GetSnippet("PreviewForm");
-
-        $GLOBALS['ISC_CLASS_TEMPLATE']->SetPageTitle(sprintf("%s - %s", GetConfig('StoreName'), "Product Preview"));
-        $GLOBALS['ISC_CLASS_TEMPLATE']->SetTemplate("preview_thankyou");
+        $GLOBALS['ISC_CLASS_TEMPLATE']->SetPageTitle(sprintf("%s - %s", GetConfig('StoreName'), "Product Financing"));
+        $GLOBALS['ISC_CLASS_TEMPLATE']->SetTemplate("finance_thankyou");
         $GLOBALS['ISC_CLASS_TEMPLATE']->ParseTemplate();
     }
 
@@ -461,7 +341,7 @@ class ISC_FINANCE
     public function goToThankYouPage()
     {
         ob_end_clean();
-        header("Location: " . $GLOBALS['ShopPath'] ."/preview.php?action=thankyou");
+        header("Location: " . $GLOBALS['ShopPath'] ."/finance.php?action=thankyou");
         die();
     }
 

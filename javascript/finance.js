@@ -5,7 +5,17 @@ $( document ).ready(function() {
     $('.secOwner').click(function(){
         showSecondOwner(this);
     });
+    $('#submitFinancing').click(function(){
+       submitForm();
+    });
 });
+
+function submitForm()
+{
+    alert('submitting');
+    //formValidation();
+    $('#financeForm').submit();
+}
 
 function showSecondOwner(obj)
 {

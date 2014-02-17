@@ -51,9 +51,9 @@
                     &nbsp;
                 </div>
                 <div class="prevInput">
-                    <input type="radio" checked="checked" value="Y" name="time_in_bus">
+                    <input type="radio" checked="checked" value="Years" name="time_in_bus" />
                     Years
-                    <input type="radio" value="M" name="time_in_bus">
+                    <input type="radio" value="Months" name="time_in_bus" />
                     Months
                 </div>
                 <br /><br />
@@ -152,9 +152,9 @@
                     &nbsp;
                 </div>
                 <div class="prevInput">
-                    <input type="radio" value="New" name="equip_type">
+                    <input type="radio" value="New" name="equip_type" />
                     New
-                    <input type="radio" value="Used" name="equip_type">
+                    <input type="radio" value="Used" name="equip_type" />
                     Used
                 </div>
                 <br /><br />
@@ -178,7 +178,7 @@
                     </div>
                 </span>
                 <div class="prevInput">
-                    <input type="radio" class="shipTo" checked="checked" id="same" name="ship_to">
+                    <input type="radio" class="shipTo" checked="checked" id="same" name="ship_to" value="Same as Business Address">
                     Same as Business Address
                 </div>
                 <br /><br />
@@ -186,7 +186,7 @@
                     (Equipment Location)
                 </div>
                 <div class="prevInput">
-                    <input type="radio" class="shipTo" id="other" name="ship_to">
+                    <input type="radio" class="shipTo" id="other" name="ship_to" value="Other Address">
                     Other Address
                 </div>
                 <br /><br />
@@ -331,9 +331,9 @@
                         &nbsp;
                         &nbsp;
                         &nbsp;
-                        <input type="radio" value="y" class="secOwner" id="yes" name="second_owner">
+                        <input type="radio" value="Yes" class="secOwner" id="yes" name="second_owner" />
                         Yes
-                        <input type="radio" checked="checked" value="n" class="secOwner" id="no" name="second_owner">
+                        <input type="radio" checked="checked" value="No" class="secOwner" id="no" name="second_owner" />
                         No
                     </div>
 
@@ -360,7 +360,7 @@
                         </div>
                         <br /><br />
                         <div class="label">
-                            Ownership
+                            Ownership %
                         </div>
                         <div class="prevInput">
                             <select id="ownership_second_owner" name="ownership_second_owner">';
@@ -430,16 +430,17 @@
                 </div>
 
                 <div class="terms">
-                    <input type="checkbox" id="accept_terms" name="accept_terms" value="" />
+                    <input type="checkbox" id="accept_terms" name="accept_terms" value="Yes" />
                     Click to accept <span class="underline" onclick='hideShowTerms(1)'>Terms &amp; Conditions</span> of this application.
                 </div>
                 <div style="padding-top: 20px">
-                    <input type="button" id="submit" name="submit" value="Submit Application" />
+                    <input type="button" id="submitFinancing" name="submitFinancing" value="Submit Application"/>
                 </div>
 
                 <input type="hidden" name="productId" id="productId" value="%%GLOBAL_productId%%" />
                 <input type="hidden" name="productName" id="productName" value="%%GLOBAL_productName%%" />
             </div>
+
         </form>
 
     </div>
