@@ -12,7 +12,6 @@ $( document ).ready(function() {
 
 function submitForm()
 {
-    alert('submitting');
     //formValidation();
     $('#financeForm').submit();
 }
