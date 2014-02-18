@@ -121,3 +121,7 @@
     cursor: pointer;
     text-align: right;
 }
+
+.productInfo{
+    text-align: center;
+}

@@ -54,6 +54,7 @@ class ISC_FINANCE
         "email_second_owner" => "",
         "accept_terms" => "",
         "productId" => "",
+        "prodcode" => "",
         "productName" => ""
     );
 

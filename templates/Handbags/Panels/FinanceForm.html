@@ -3,6 +3,13 @@
         <h1 style='text-align:left'>
             Financing Application for %%GLOBAL_productName%%
         </h1>
+        <br />
+
+        <div class="productInfo">
+            <div class="sku">
+                <b>SKU</b> - %%GLOBAL_prodcode%%
+            </div>
+        </div>
 
         <form id="financeForm" name="financeForm" action="%%GLOBAL_AppPath%%/finance.php?action=submit" method="post">
             <div id="businessInfo">
@@ -438,6 +445,7 @@
                 </div>
 
                 <input type="hidden" name="productId" id="productId" value="%%GLOBAL_productId%%" />
+                <input type="hidden" name="prodcode" id="prodcode" value="%%GLOBAL_prodcode%%" />
                 <input type="hidden" name="productName" id="productName" value="%%GLOBAL_productName%%" />
             </div>
 
