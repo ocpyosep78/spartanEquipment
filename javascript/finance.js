@@ -25,6 +25,7 @@ function validateForm()
            isValid = false;
            mess += comma + $(this).attr('placeholder');
            comma = ", ";
+           $(this).focus();
        }
 
     });
