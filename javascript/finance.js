@@ -6,9 +6,35 @@ $( document ).ready(function() {
         showSecondOwner(this);
     });
     $('#submitFinancing').click(function(){
-       submitForm();
+        if(validateForm())
+        {
+            submitForm();
+        }
     });
 });
+
+function validateForm()
+{
+    var isValid = true;
+    var mess = "";
+    var comma = "";
+
+    $('.required').each(function(){
+
+       if($(this).val() == "") {
+           isValid = false;
+           mess += comma + $(this).attr('placeholder');
+           comma = ", ";
+       }
+
+    });
+
+    if(!isValid) {
+        alert('Please complete the following fields ' + mess);
+    }
+
+    return isValid;
+}
 
 function submitForm()
 {
