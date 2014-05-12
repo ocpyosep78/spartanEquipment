@@ -1,4 +1,9 @@
 <style>
+    @font-face {
+        font-family: lato;
+        src: url("%%GLOBAL_AppPath%%/fonts/lato/Lato-Black.ttf");
+        font-weight:400;
+    }
     .addthis_button{
         float: right !important;
         margin-right: 60px;
@@ -9,14 +14,15 @@
         /* margin-top: -25px;*/
     }
     .financeWrapper{
-        font-family: 'Trajan Pro',sans-serif;
-        width: 175px;
-        background-color: #b11b1d;
-        margin-left: 20px;
-        height: 64px;
+        font-family: Lato;
         color: white;
-        font-size: 16px;
+        font-size: 18px;
         cursor: pointer;
+        background-image: url("%%GLOBAL_AppPath%%/templates/Handbags/images/finance-button-a.fw.png");
+        background-repeat:no-repeat;
+        height: 90px;
+        margin-left: 10px;
+
     }
 
     .finance{
@@ -24,7 +30,7 @@
     }
 
     .financeDetails{
-        padding-top: 10px;
+        padding-top: 30px;
     }
 
 </style>
@@ -242,10 +248,7 @@ var productId = %%GLOBAL_ProductId%%;
             <div id="financing" class="financeWrapper">
                 <div class="finance">
                     <div class='financeDetails'>
-                        Own This For
-                        <br />
                         <div id='financeOption'></div>
-
                     </div>
                 </div>
             </div>
