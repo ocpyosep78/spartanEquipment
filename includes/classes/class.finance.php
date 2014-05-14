@@ -229,7 +229,7 @@ class ISC_FINANCE
         $GLOBALS['productName'] = $productInfo['prodname'];
         $GLOBALS['prodcode'] = $productInfo['prodcode'];
         $GLOBALS['prodprice'] = $productInfo['prodprice'];
-        $GLOBALS['proddesc'] = substr(strip_tags($productInfo['proddesc']), 0, 100);
+        $GLOBALS['proddesc'] = substr(strip_tags($productInfo['proddesc']), 0, 1000);
         $GLOBALS['productImage'] = $GLOBALS['ISC_CFG']["ShopPath"]."/".$GLOBALS['ISC_CFG']["ImageDirectory"]."/".$productInfo['imagefilestd'];
         $GLOBALS['productId'] = $productId;
         $GLOBALS['ownershipSelect'] = $this->buildOwnerShipSelect();
