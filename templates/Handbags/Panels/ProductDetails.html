@@ -66,7 +66,10 @@ function goToFinancePage()
 {
     var product = productId;
     var link = "%%GLOBAL_AppPath%%/finance.php?action=finance&product="+product;
-    window.location.href = link;
+    window.open(
+        link,
+        '_blank'
+    );
 }
 
 var ThumbURLs = new Array();

@@ -5,12 +5,6 @@
         </h1>
         <br />
 
-        <div class="productInfo">
-            <div class="sku">
-                <b>SKU</b> - %%GLOBAL_prodcode%%
-            </div>
-        </div>
-
         <form id="financeForm" name="financeForm" action="%%GLOBAL_AppPath%%/finance.php?action=submit" method="post">
             <div id="businessInfo">
                 <h3 style="padding: 20px 0 10px 0;">
@@ -149,10 +143,17 @@
                 </h3>
 
                 <div class="label">
+                    SKU
+                </div>
+                <div class="prevInput">
+                    %%GLOBAL_prodcode%%
+                </div>
+                <br /><br />
+                <div class="label">
                     Equipment Cost $
                 </div>
                 <div class="prevInput">
-                    <input placeholder="Equipment Cost $" id="equip_cost" class="Textbox Field200" type="text" value="%%GLOBAL_prodprice%%" name="equip_cost" />
+                    <input placeholder="Equipment Cost $" id="equip_cost" class="Textbox Field200" type="text" value="%%GLOBAL_prodprice%%" name="equip_cost" disabled/>
                 </div>
                 <br /><br />
                 <div class="label">
@@ -235,7 +236,9 @@
                     Equipment Description
                 </div>
                 <br /><br />
-                <textarea placeholder="Equipment Description" rows="4" cols="42" id="equip_desc" class="Textbox" name="equip_desc" >%%GLOBAL_equip_desc%%</textarea>
+                <textarea placeholder="Equipment Description" rows="4" cols="42" id="equip_desc" class="Textbox" name="equip_desc" disabled >
+                    %%GLOBAL_proddesc%%
+                </textarea>
                 <br /><br />
 
                 <div id="userInfo">
@@ -422,10 +425,10 @@
                     </div>
                 </div>
 				<br />
-                <div class="terms">
-                    <input type="checkbox" id="accept_terms" name="accept_terms" value="Yes" />
-                    Click to accept <span class="underline" onclick='hideShowTerms(1)'>Terms &amp; Conditions</span> of this application.
-                </div>
+                <!--<div class="terms">-->
+                    <!--<input type="checkbox" id="accept_terms" name="accept_terms" value="Yes" />-->
+                    <!--Click to accept <span class="underline" onclick='hideShowTerms(1)'>Terms &amp; Conditions</span> of this application.-->
+                <!--</div>-->
                 <div style="padding-top: 20px">
                     <input type="button" id="submitFinancing" name="submitFinancing" value="Submit Application"/>
                 </div>
@@ -439,40 +442,40 @@
 
     </div>
 </div>
-<div id='termsWrapper'>
-    <div id='termsMessageBox'>
-        <h2 style="padding: 15px 0 10px 20px">
-            Terms and Conditions Statement
-        </h2>
-        <div class='termsMessage'>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quam diam, posuere hendrerit sodales
-                luctus, viverra ut tortor. Mauris scelerisque erat at libero commodo porttitor. Donec sodales posuere
-                ullamcorper. Praesent fermentum, risus eu vestibulum accumsan, sapien nisl dapibus libero, sit amet lacinia
-                risus mi viverra libero. Aliquam eros quam, lacinia non rutrum eu, interdum id mi. Vestibulum elit diam,
-                interdum non ligula vel, posuere consectetur quam. Praesent dignissim sed quam vel faucibus. Vestibulum
-                vitae consequat ipsum, in volutpat leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                per inceptos himenaeos.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quam diam, posuere hendrerit sodales
-                luctus, viverra ut tortor. Mauris scelerisque erat at libero commodo porttitor. Donec sodales posuere
-                ullamcorper. Praesent fermentum, risus eu vestibulum accumsan, sapien nisl dapibus libero, sit amet lacinia
-                risus mi viverra libero. Aliquam eros quam, lacinia non rutrum eu, interdum id mi. Vestibulum elit diam,
-                interdum non ligula vel, posuere consectetur quam. Praesent dignissim sed quam vel faucibus. Vestibulum
-                vitae consequat ipsum, in volutpat leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                per inceptos himenaeos.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quam diam, posuere hendrerit sodales
-                luctus, viverra ut tortor. Mauris scelerisque erat at libero commodo porttitor. Donec sodales posuere
-                ullamcorper. Praesent fermentum, risus eu vestibulum accumsan, sapien nisl dapibus libero, sit amet lacinia
-                risus mi viverra libero. Aliquam eros quam, lacinia non rutrum eu, interdum id mi. Vestibulum elit diam,
-                interdum non ligula vel, posuere consectetur quam. Praesent dignissim sed quam vel faucibus. Vestibulum
-                vitae consequat ipsum, in volutpat leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                per inceptos himenaeos.
-            </p>
-        </div>
-        <p class='closeMessage'><a onclick='hideShowTerms(0)'>Close</a>
-    </div>
-</div>
+<!--<div id='termsWrapper'>-->
+    <!--<div id='termsMessageBox'>-->
+        <!--<h2 style="padding: 15px 0 10px 20px">-->
+            <!--Terms and Conditions Statement-->
+        <!--</h2>-->
+        <!--<div class='termsMessage'>-->
+            <!--<p>-->
+                <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quam diam, posuere hendrerit sodales-->
+                <!--luctus, viverra ut tortor. Mauris scelerisque erat at libero commodo porttitor. Donec sodales posuere-->
+                <!--ullamcorper. Praesent fermentum, risus eu vestibulum accumsan, sapien nisl dapibus libero, sit amet lacinia-->
+                <!--risus mi viverra libero. Aliquam eros quam, lacinia non rutrum eu, interdum id mi. Vestibulum elit diam,-->
+                <!--interdum non ligula vel, posuere consectetur quam. Praesent dignissim sed quam vel faucibus. Vestibulum-->
+                <!--vitae consequat ipsum, in volutpat leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra,-->
+                <!--per inceptos himenaeos.-->
+            <!--</p>-->
+            <!--<p>-->
+                <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quam diam, posuere hendrerit sodales-->
+                <!--luctus, viverra ut tortor. Mauris scelerisque erat at libero commodo porttitor. Donec sodales posuere-->
+                <!--ullamcorper. Praesent fermentum, risus eu vestibulum accumsan, sapien nisl dapibus libero, sit amet lacinia-->
+                <!--risus mi viverra libero. Aliquam eros quam, lacinia non rutrum eu, interdum id mi. Vestibulum elit diam,-->
+                <!--interdum non ligula vel, posuere consectetur quam. Praesent dignissim sed quam vel faucibus. Vestibulum-->
+                <!--vitae consequat ipsum, in volutpat leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra,-->
+                <!--per inceptos himenaeos.-->
+            <!--</p>-->
+            <!--<p>-->
+                <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quam diam, posuere hendrerit sodales-->
+                <!--luctus, viverra ut tortor. Mauris scelerisque erat at libero commodo porttitor. Donec sodales posuere-->
+                <!--ullamcorper. Praesent fermentum, risus eu vestibulum accumsan, sapien nisl dapibus libero, sit amet lacinia-->
+                <!--risus mi viverra libero. Aliquam eros quam, lacinia non rutrum eu, interdum id mi. Vestibulum elit diam,-->
+                <!--interdum non ligula vel, posuere consectetur quam. Praesent dignissim sed quam vel faucibus. Vestibulum-->
+                <!--vitae consequat ipsum, in volutpat leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra,-->
+                <!--per inceptos himenaeos.-->
+            <!--</p>-->
+        <!--</div>-->
+        <!--<p class='closeMessage'><a onclick='hideShowTerms(0)'>Close</a>-->
+    <!--</div>-->
+<!--</div>-->
