@@ -20,6 +20,8 @@ class ISC_FINANCE
         "comments" => "",
         "equip_cost" => "",
         "equip_type" => "",
+        "equipDesc" => "",
+        "equipCost" => "",
         "desired_term" => "",
         "ship_to" => "",
         "ship_to_address_other" => "",
@@ -58,7 +60,7 @@ class ISC_FINANCE
         "productName" => ""
     );
 
-    var $toEmail = "bill@spartanequipment.com";
+    var $toEmail = "jfranco@newdynamx.com";
     var $fromEmail = "financing@spartanequipment.com";
 
 
