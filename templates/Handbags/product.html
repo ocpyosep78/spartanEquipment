@@ -1,6 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/">
 %%Panel.HTMLHead%%
+  <script>
+    $(document).ready(function (){
+            $('#ProductOtherDetails .ProductDetailsGrid .DetailRow:nth-child(2n+1)').addClass('grayBlock')
+        });
+    </script>
 <body>
     <script type="text/javascript" src="%%GLOBAL_AppPath%%/javascript/product.functions.js?%%GLOBAL_JSCacheToken%%"></script>
     <script type="text/javascript" src="%%GLOBAL_AppPath%%/javascript/product.js?%%GLOBAL_JSCacheToken%%"></script>

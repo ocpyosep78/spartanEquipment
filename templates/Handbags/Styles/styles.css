@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
 }
-
+.grayBlock{background-color: #ccc;padding: 4px 0;overflow:hidden;}
 /* General */
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -480,10 +480,11 @@ hr {
 }
 
 .Left h3 {
-    font-size: 1.1em;
+    font-size: 19px;
     padding: 0 10px;
     margin: 0 0 5px 0;
     position: relative;
+    font-family: 'WebFont',bebas_neueregular;
 }
 
 .Left ul {
@@ -1645,7 +1646,15 @@ a.ChangeLink {
     padding: 4px;
 }
 
-#LayoutColumn2 .subcatlink{position:absolute; bottom: 10px;left:0;width:100%;}
+#LayoutColumn2 .subcatlink{
+position:absolute; 
+bottom: 10px;
+left:0;
+width:100%;
+font-family: 'WebFont', bebas_neueregular;
+font-size: 18px;
+text-decoration: none;
+}
 
 .SubCategoryListGrid ul, .SubCategoryListGrid li {
     list-style: none;
@@ -1662,13 +1671,13 @@ a.ChangeLink {
 }
 
 #LayoutColumn1 .SubCategoryListGrid li {
-    margin: 0 0 0 13px !important;
-    padding: 0 !important;
-    background: none !important;
+   background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
     float: left;
-    text-align: left !important;
     height: 25px !important;
-    width: 180px !important;
+    margin: 5px 0 0 5px !important;
+    padding: 0 !important;
+    text-align: left !important;
+    width: 190px !important;
 }
 
 #LayoutColumn2 .SubCategoryListGrid li {
@@ -1982,7 +1991,7 @@ p.QuantityInput, p.AddCartButton {
 }
 
 #ProductOtherDetails .ProductDetailsGrid .DetailRow {
-    border-bottom: 1px solid #C1C3C4;
+    /*border-bottom: 1px solid #C1C3C4;*/
 }
 
 .ProductDetailsGrid .Label {
@@ -1996,9 +2005,8 @@ p.QuantityInput, p.AddCartButton {
     text-align: left;
 
 }
-
 #ProductOtherDetails .ProductDetailsGrid .Label {
-    width: 150px;
+    width: 270px;
 }
 
 .ProductDetailsGrid .Value {
@@ -2111,7 +2119,7 @@ p.QuantityInput, p.AddCartButton {
 
 #VideoContainer {
     padding: 5px 0 5px 5px;
-    height: 400px;
+    height: 525px;
 }
 
 .HideElement {
@@ -2302,11 +2310,11 @@ p.QuantityInput, p.AddCartButton {
 .calcfreight{margin-left: 15px;background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -261px -5px;width:177px;height:34px;}
 .calcfreight:hover{background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -261px -47px;}
 
-.contactusBtn{margin: -10px auto 10px auto;background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -12px -108px;width:177px;height:34px;}
-.contactusBtn:hover{background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -12px -155px;}
+.contactusBtn{background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -12px -108px;width:134px;height:27px;}
+.contactusBtn:hover{background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -12px -143px;}
 
-.printPage{margin: 10px auto;background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -12px -252px;width:177px;height:34px;}
-.printPage:hover{background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -12px -208px;}
+.printPage{background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -12px -184px;width:134px;height:27px;}
+.printPage:hover{background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -12px -216px;}
 
 .financing{margin: 10px auto;background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -12px -414px;width:176px;height:60px;}
 .financing:hover{background: url(../../Handbags/images/grey/spartanwebbuttons.png) no-repeat -12px -487px;}
@@ -2353,7 +2361,7 @@ width:180px;
   top: 0;
 }
 .infiniteCarousel ul .ProductImage a img {
-    width: 180px;
+    /*width: 180px;*/
     margin: 0 auto;
 
 }
@@ -2457,4 +2465,9 @@ width:180px;
   color: #8B1B19 !important;
   font-size: 2.2em !important;
   font-variant: small-caps;
+}
+.FreeShipping {
+  margin-left:8px;
+  margin-bottom: 10px;
+
 }
