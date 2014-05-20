@@ -74,7 +74,8 @@ function hideShowFinanceOption(NDX_payment, NDX_ProductPrice)
 function goToFinancePage()
 {
     var product = productId;
-    var link = "%%GLOBAL_AppPath%%/finance.php?action=finance&product="+product;
+    var price = $('.ProductPrice').text();
+    var link = "%%GLOBAL_AppPath%%/finance.php?action=finance&product="+product+"&price="+price;
     window.open(
         link,
         '_blank'

@@ -232,7 +232,7 @@ class ISC_FINANCE
         $productInfo = $this->getProductInfo($productId);
         $GLOBALS['productName'] = htmlentities($productInfo['prodname'], ENT_QUOTES);
         $GLOBALS['prodcode'] = $productInfo['prodcode'];
-        $GLOBALS['prodprice'] = $productInfo['prodprice'];
+        $GLOBALS['prodprice'] = isset($_GET['price']) && $_GET['price'] != '' ? $_GET['price'] : $productInfo['prodprice'];
         $GLOBALS['proddesc'] = htmlentities($productInfo['prodname'], ENT_QUOTES);
         $GLOBALS['productImage'] = $GLOBALS['ISC_CFG']["ShopPath"]."/".$GLOBALS['ISC_CFG']["ImageDirectory"]."/".$productInfo['imagefilestd'];
         $GLOBALS['productId'] = $productId;
