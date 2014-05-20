@@ -62,7 +62,7 @@ class ISC_FINANCE
         "model" => ""
     );
 
-    var $toEmail = "jfranco@newdynamx.com";
+    var $toEmail = "bill@spartanequipment.com";
     var $fromEmail = "financing@spartanequipment.com";
 
 

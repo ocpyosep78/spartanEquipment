@@ -100,6 +100,9 @@ function updateSelectedVariation(parent, variation, id) {
 			} else {
 				$$.html(variation.price);
 			}
+            var NDX_price = parseFloat(variation.price.replace(/[^0-9.]/g, ''));
+            var NDX_pay = parseFloat(((NDX_price * 5.25) / 60));
+            hideShowFinanceOption(NDX_pay, NDX_price);
 		});
 		if(variation.sku != '') {
 			$('.VariationProductSKU', parent).html(variation.sku);
