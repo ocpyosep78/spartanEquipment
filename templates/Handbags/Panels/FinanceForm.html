@@ -234,13 +234,32 @@
 
                 </div>
                 <div class="label">
-                    Equipment Description
+                    Equipment Description:
+                </div>
+                <div class="prevInput" style="width: 170px">
+                    %%GLOBAL_proddesc%%
                 </div>
                 <br /><br />
-                <textarea placeholder="Equipment Description" rows="4" cols="42" id="equip_desc" class="Textbox" name="equip_desc" disabled >
-                    %%GLOBAL_proddesc%%
-                </textarea>
-                <input type="hidden" id="equipDesc" name="equipDesc" value="%%GLOBAL_proddesc%%" />
+
+                <div id="plannedUsage">
+                    <h3 style="padding: 20px 0 10px 0;">
+                        Planned Power Plant Use
+                    </h3>
+
+                    <div class="label">
+                        Make
+                    </div>
+                    <div class="prevInput">
+                        <input placeholder="Make" id="make" class="required Textbox Field200" type="text" value="%%GLOBAL_name%%" name="make" />
+                    </div>
+                    <br /><br />
+                    <div class="label">
+                        Model
+                    </div>
+                    <div class="prevInput">
+                        <input placeholder="Model" id="model" class="required Textbox Field200" type="text" value="%%GLOBAL_model%%" name="model" />
+                    </div>
+                </div>
                 <br /><br />
 
                 <div id="userInfo">

@@ -57,10 +57,12 @@ class ISC_FINANCE
         "accept_terms" => "",
         "productId" => "",
         "prodcode" => "",
-        "productName" => ""
+        "productName" => "",
+        "make" => "",
+        "model" => ""
     );
 
-    var $toEmail = "bill@spartanequipment.com";
+    var $toEmail = "jfranco@newdynamx.com";
     var $fromEmail = "financing@spartanequipment.com";
 
 
@@ -228,10 +230,10 @@ class ISC_FINANCE
         }
         $productId = $_REQUEST['product'];
         $productInfo = $this->getProductInfo($productId);
-        $GLOBALS['productName'] = $productInfo['prodname'];
+        $GLOBALS['productName'] = htmlentities($productInfo['prodname'], ENT_QUOTES);
         $GLOBALS['prodcode'] = $productInfo['prodcode'];
         $GLOBALS['prodprice'] = $productInfo['prodprice'];
-        $GLOBALS['proddesc'] = substr(strip_tags($productInfo['proddesc']), 0, 1000);
+        $GLOBALS['proddesc'] = htmlentities($productInfo['prodname'], ENT_QUOTES);
         $GLOBALS['productImage'] = $GLOBALS['ISC_CFG']["ShopPath"]."/".$GLOBALS['ISC_CFG']["ImageDirectory"]."/".$productInfo['imagefilestd'];
         $GLOBALS['productId'] = $productId;
         $GLOBALS['ownershipSelect'] = $this->buildOwnerShipSelect();
